@@ -1,5 +1,4 @@
-import { responseSymbol } from 'next/dist/server/web/spec-compliant/fetch-event'
-import { IShopifyAllProducts, IShopifyProduct, IShopifyProductEdgesWithCursor } from 'src/models/shopify'
+import { IShopifyAllProducts, IShopifyProduct, IShopifyProductEdges } from 'src/models/shopify'
 
 export default async function storefront<T>(query: string, variables = {}): Promise<T> {
   const url: any = process.env.NEXT_PUBLIC_API_URL
@@ -58,7 +57,7 @@ async function getSingleProduct(handle: string): Promise<IShopifyProduct> {
   return data
 }
 
-async function recursiveCatalog(cursor: string | undefined = '', initialRequest = true): Promise<IShopifyProductEdgesWithCursor[]> {
+async function recursiveCatalog(cursor: string | undefined = ''): Promise<IShopifyProductEdges[]> {
   let data
 
   if (cursor === '') {

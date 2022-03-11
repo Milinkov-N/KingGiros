@@ -30,7 +30,6 @@ const query = `
   query Products {
     products(first: 250) {
       edges {
-        cursor
         node {
           id
           handle

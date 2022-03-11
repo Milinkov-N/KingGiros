@@ -32,7 +32,7 @@ export interface IShopifyProduct {
 export interface IShopifyAllProducts {
   data: {
     products: {
-      edges: IShopifyProductEdgesWithCursor[]
+      edges: IShopifyProductEdges[]
       pageInfo: {
         hasNextPage: boolean
       }
@@ -40,7 +40,7 @@ export interface IShopifyAllProducts {
   }
 }
 
-export interface IShopifyProductEdgesWithCursor {
+export interface IShopifyProductEdges {
   node: IShopifyProduct,
   cursor?: string
 }
