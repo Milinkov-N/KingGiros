@@ -33,6 +33,7 @@
 
 .delivery p {
   font-family: inherit;
+  margin: 0;
 }
 
 .delivery span {

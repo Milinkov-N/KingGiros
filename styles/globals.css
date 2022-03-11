@@ -30,6 +30,8 @@
 }
 
 * {
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
 }
 
@@ -318,6 +320,10 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 @media (max-width: 500px) {
+  .container {
+    padding: 0 15px;
+  }
+  
   .heading-1 {
     font-size: calc(1rem + 5vw);
   }
