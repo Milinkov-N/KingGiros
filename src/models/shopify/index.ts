@@ -39,7 +39,6 @@ export interface IShopifyAllProducts {
     }
   }
 }
-
 export interface IShopifyProductEdges {
   node: IShopifyProduct,
   cursor?: string
