@@ -1,0 +1,148 @@
+.header {
+  width: 100%;
+  background: var(--clr-primary-400);
+  color: #fff;
+}
+
+.container {
+  display: grid;
+  align-items: center;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1rem;
+  grid-template-areas:
+    'title title logo delivery controls';
+}
+
+.title {
+  display: flex;
+  justify-content: center;
+  grid-area: title;
+  text-transform: uppercase;
+  font-size: 1.5rem;
+  font-style: italic;
+  color: var(--clr-secondary-400);
+  transform: rotate(354deg);
+}
+
+.delivery {
+  font-family: var(--ff-pf-square);
+  font-size: .875rem;
+  font-weight: 600;
+  grid-area: delivery;
+}
+
+.delivery p {
+  font-family: inherit;
+}
+
+.delivery span {
+  display: inline-block;
+  color: var(--clr-secondary-400);
+  margin-bottom: .5em;
+}
+
+.delivery a {
+  font-style: italic;
+  color: var(--clr-secondary-400);
+}
+
+.phone {
+  display: flex;
+  gap: .5rem;
+}
+
+.iconWrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 18px;
+  height: 18px;
+  background: #fff;
+  border-radius: 50%;
+  font-size: .55rem;
+  color: var(--clr-secondary-400);
+}
+
+.icon {
+  color: var(--clr-primary-400);
+}
+
+.controls {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 1rem;
+  grid-area: controls;
+}
+
+.openNav {
+  width: fit-content;
+  color: #fff;
+  grid-area: open-nav;
+}
+
+.cart {
+  display: none;
+  padding: unset;
+  margin-left: auto;
+  color: #fff;
+}
+
+@media (max-width: 1130px) {
+  .header {
+    position: sticky;
+    top: 0;
+    box-shadow: 0 0 15px rgba(0 0 0 / .1);
+    z-index: 9999;
+  }
+
+  .container {
+    grid-template-areas:
+      'open-nav delivery logo controls controls';
+  }
+
+  .title {
+    display: none;
+  }
+
+  .cart {
+    display: inline-block;
+  }
+}
+
+@media (max-width: 950px) {
+  .container {
+    grid-template-areas:
+      'open-nav open-nav logo controls controls';
+  }
+
+  .delivery {
+    display: none;
+  }
+}
+
+@media (max-width: 900px) {
+  
+}
+
+@media (max-width: 700px) {
+  .header {
+    padding: .5rem 0;
+  }
+
+  .logo {
+    height: 80px;
+  }
+}
+
+@media (max-width: 570px) {
+  .controls button:not(.cart) {
+    display: none;
+  }
+}
+
+@media (max-width: 530px) {
+  .logo {
+    height: 70px;
+  }
+}

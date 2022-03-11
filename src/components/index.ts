@@ -4,6 +4,8 @@ import Footer from './Footer'
 import CartModal from './CartModal'
 import NavModal from './NavModal'
 import Logo from './Logo'
+import Container from './Container'
+import Img from './Img'
 
 export {
   Layout,
@@ -11,5 +13,7 @@ export {
   Footer,
   CartModal,
   NavModal,
-  Logo
+  Logo,
+  Container,
+  Img,
 }
