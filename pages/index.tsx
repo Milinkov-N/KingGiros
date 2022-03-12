@@ -3,7 +3,7 @@ import type { NextPage } from 'next'
 import { IShopifyAllProducts, IShopifyProduct } from 'src/models/shopify'
 import storefront from 'src/utils/shopify'
 
-import { Layout } from 'src/components'
+import { Hero, Layout } from 'src/components'
 export interface HomePageProps {
   products: IShopifyProduct[]
 }
@@ -13,7 +13,9 @@ const Home: NextPage<HomePageProps> = ({ products }) => {
 
   return (
     <div>
-      <Layout />
+      <Layout>
+        <Hero />
+      </Layout>
     </div>
   )
 }

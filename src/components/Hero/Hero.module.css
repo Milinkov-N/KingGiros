@@ -1,0 +1,42 @@
+.hero {
+  position: relative;
+  min-height: 40vh;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.container {
+  position: relative;
+  color: #000;
+  padding-top: 10vh;
+}
+
+.title span {
+  color: var(--clr-primary-400);
+}
+
+.subtitle {
+  font-size: 1.125rem;
+  font-weight: 500;
+  max-width: 40em;
+  margin: 0 auto; 
+  margin-top: .75em;
+  color: var(--clr-neutral-900);
+}
+
+.hero .container > a {
+  display: inline-block;
+  margin: 0 auto;
+  margin-top: 2rem;
+}
+
+@media (max-width: 500px) {
+  .hero {
+    min-height: unset;
+    text-align: left;
+  }
+
+  .container {
+    padding-top: unset;
+  }
+}

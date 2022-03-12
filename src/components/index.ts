@@ -6,6 +6,7 @@ import NavModal from './NavModal'
 import Logo from './Logo'
 import Container from './Container'
 import Img from './Img'
+import Hero from './Hero'
 
 export {
   Layout,
@@ -18,4 +19,5 @@ export {
   Logo,
   Container,
   Img,
+  Hero,
 }
