@@ -8,6 +8,7 @@ import AddToOrder from './AddToOrder'
 import CartList from './CartList'
 
 import styles from './Cart.module.css'
+import OrderSummary from './OrderSummary'
 
 export default function CartModal() {
   const { cartIsOpened } = useTypedSelector(state => state.appReducer)
@@ -35,6 +36,7 @@ export default function CartModal() {
             <CartList />
             <AddToOrder />
           </div>
+          <OrderSummary />
         </div>
       </div>
     </Modal>

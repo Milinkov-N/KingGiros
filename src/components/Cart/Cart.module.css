@@ -94,6 +94,57 @@
   border-radius: 8px;
 }
 
+/**
+  ------- OrderSummary styles ------- 
+*/
+
+.orderSummary {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  background: #fff;
+  width: inherit;
+  border-radius: 6px;
+  padding: 11px;
+  margin-top: auto;
+  margin-bottom: .75rem;
+  font-family: system-ui, 'Ubuntu', sans-serif;
+}
+
+.orderTitle {
+  font-family: var(--ff-pf-square);
+  font-size: var(--fsz-heading-3);
+  font-weight: 500;
+  margin-bottom: 0.275em;
+}
+
+.summaryTable {
+  width: 100%;
+}
+
+.tableRow {
+  font-weight: 400;
+  color: var(--clr-neutral-700);
+}
+
+.tableRow td:last-child {
+  margin-top: .5em;
+  text-align: right;
+}
+
+.tableRow:last-child td {
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: #000;
+  margin-top: .5em;
+  padding-top: .75rem;
+}
+
+.checkoutBtn {
+  width: 100%;
+  margin-bottom: 11px;
+}
+
 @media (max-width: 400px) {
   .cartModal {
     width: 100vw;
