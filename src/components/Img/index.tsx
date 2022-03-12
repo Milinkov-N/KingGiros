@@ -9,8 +9,8 @@ export interface ImgProps extends ImageProps {
 export default function Img({ className, src, alt, size, style, ...all }: ImgProps) {
   const imgStyles: CSS.Properties = {
     position: 'relative',
-    width: 'auto',
-    height: typeof size === 'number' ? `${size}px` : size,
+    width: typeof size === 'number' ? `${size}px` : size,
+    height: 'auto',
     aspectRatio: '1 / 1',
     ...style
   }

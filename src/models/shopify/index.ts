@@ -6,21 +6,21 @@ export interface IShopifyImage {
 }
 
 export interface IShopifyProduct {
-  id?: string
-  handle?: string
-  title?: string
-  description?: string
-  descriptionHtml?: any
-  tags?: string[]
-  priceRange?: {
+  id: string
+  handle: string
+  title: string
+  description: string
+  descriptionHtml: any
+  tags: string[]
+  priceRange: {
     minVariantPrice: {
       amount: string
     }
   }
-  images?: {
+  images: {
     edges: IShopifyImage[]
   }
-  variants?: {
+  variants: {
     edges: [
       node: {
         id: string

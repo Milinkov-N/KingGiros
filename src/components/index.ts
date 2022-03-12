@@ -7,6 +7,7 @@ import Logo from './Logo'
 import Container from './Container'
 import Img from './Img'
 import Hero from './Hero'
+import CollectionList from './CollectionList'
 
 export {
   Layout,
@@ -20,4 +21,5 @@ export {
   Container,
   Img,
   Hero,
+  CollectionList,
 }

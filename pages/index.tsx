@@ -1,20 +1,28 @@
 import type { NextPage } from 'next'
 
-import { IShopifyAllProducts, IShopifyProduct } from 'src/models/shopify'
+import { IShopifyAllProducts, IShopifyProductEdges } from 'src/models/shopify'
 import storefront from 'src/utils/shopify'
 
-import { Hero, Layout } from 'src/components'
+import { CollectionList, Hero, Layout } from 'src/components'
 export interface HomePageProps {
-  products: IShopifyProduct[]
+  products: IShopifyProductEdges[]
 }
 
 const Home: NextPage<HomePageProps> = ({ products }) => {
-  // console.log(products)
+  console.log(products)
 
   return (
     <div>
       <Layout>
         <Hero />
+        <div className='collections'>
+          <CollectionList
+            products={ products }
+            title='Шаурма'
+            sortBy={ 'shaurma' }
+            handle={ products[0].node.handle } 
+          />
+        </div>
       </Layout>
     </div>
   )
