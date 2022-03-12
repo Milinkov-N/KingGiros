@@ -1,11 +1,13 @@
 export interface AppState {
   cartIsOpened: boolean
   navIsOpened: boolean
+  navResponsive: boolean
 }
 
 export enum AppActionEnum {
-  SET_CART = 'SET_CART',
-  SET_NAV  = 'SET_NAV'
+  SET_CART_OPENED = 'SET_CART_OPENED',
+  SET_NAV_OPENED  = 'SET_NAV_OPENED',
+  SET_NAV_RESPONSIVE = 'SET_NAV_RESPONSIVE',
 }
 
 export interface setAppAction {

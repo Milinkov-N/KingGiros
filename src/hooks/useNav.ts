@@ -1,7 +1,7 @@
 import { useEffect, RefObject, MutableRefObject } from 'react'
-
+import useActions from './useActions'
 export interface useNavProps {
-  navEl: RefObject<HTMLElement>
+  navEl: RefObject<HTMLDivElement>
   navListWidth: MutableRefObject<number>
   openCartWidth: MutableRefObject<number>
 }
@@ -13,6 +13,8 @@ export default function useNav({
   }: useNavProps,
   styles: { readonly [key: string]: string }
 ) {
+  const { setNavResp } = useActions()
+
   const getNavListWidth = (el: HTMLUListElement) => {
     if (!el) return
     navListWidth.current = el?.getBoundingClientRect().width
@@ -42,7 +44,9 @@ export default function useNav({
   }
 
   useEffect(() => {
-    fixOnScroll(navEl.current!)
+    if (!navEl.current) return
+
+    fixOnScroll(navEl.current)
 
     const navContentWidth = navListWidth.current + openCartWidth.current + 120
 
@@ -50,14 +54,18 @@ export default function useNav({
       const navWidth = entries[0].contentRect.width
 
       if (navWidth <= navContentWidth) {
-        console.log(entries[0].contentRect.width)
+        setNavResp(true)
+      } else {
+        console.log(navWidth);
+        
+        setNavResp(false)
       }
     })
 
-    observer.observe(navEl.current!)
+    observer.observe(navEl.current)
 
     return () => observer.disconnect()
-  },[])
+  },[navEl.current])
 
   return {
     getNavListWidth,

@@ -1,17 +1,21 @@
 import Container from '../Container'
 import { COLLECTIONS, PAGES_LINKS } from 'src/consts'
 
-import styles from './Nav.module.css'
 import Button from '../Button'
 import Dropdown from '../Dropdown'
 import { OpenCart } from '../Cart'
 import { useRef } from 'react'
 import useNav from 'src/hooks/useNav'
+import useTypedSelector from 'src/hooks/useTypedSelector'
+
+import styles from './Nav.module.css'
 
 export default function Nav() {
-  const navEl = useRef<HTMLElement>(null)
+  const navEl = useRef<HTMLDivElement>(null)
   const navListWidth = useRef(0)
   const openCartWidth = useRef(0)
+
+  const { navResponsive } = useTypedSelector(state => state.appReducer)
 
   const {
     getNavListWidth,
@@ -23,22 +27,25 @@ export default function Nav() {
   }, styles)
 
   return (
-    <nav
-      ref={ navEl }
-      className={ styles.nav }
-    >
-      <Container className={ styles.wrapper }>
-        <ul ref={ getNavListWidth } className={ styles.navList }>
-          <CollectionsLinks />
-          <DropdownLinks />
-          <PagesLinks />
-        </ul>
-        <OpenCart
-          ref={ getOpenCartWidth }
-          className={ styles.openCart }
-        />
-      </Container>
-    </nav>
+    <div ref={ navEl }>
+      { !navResponsive && (
+          <nav
+            className={ styles.nav }
+          >
+            <Container className={ styles.wrapper }>
+              <ul ref={ getNavListWidth } className={ styles.navList }>
+                <CollectionsLinks />
+                <DropdownLinks />
+                <PagesLinks />
+              </ul>
+              <OpenCart
+                ref={ getOpenCartWidth }
+                className={ styles.openCart }
+              />
+            </Container>
+          </nav>
+        )}
+    </div>
   )
 }
 

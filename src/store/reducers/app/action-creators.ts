@@ -1,15 +1,15 @@
 import { setAppAction, AppActionEnum } from './types'
 
 const {
-  SET_CART,
-  SET_NAV
+  SET_CART_OPENED,
+  SET_NAV_OPENED,
+  SET_NAV_RESPONSIVE,
 } = AppActionEnum
 
 const AppActionCreators = {
-  setOpenCart: ():setAppAction => ({ type: SET_CART, payload: true }),
-  setCloseCart: ():setAppAction => ({ type: SET_CART, payload: false }),
-  setOpenNav: ():setAppAction => ({ type: SET_NAV, payload: true }),
-  setCloseNav: ():setAppAction => ({ type: SET_NAV, payload: false }),
+  setCartOpened: (payload: boolean):setAppAction => ({ type: SET_CART_OPENED, payload }),
+  setNavOpened: (payload: boolean):setAppAction => ({ type: SET_NAV_OPENED, payload }),
+  setNavResp: (payload: boolean):setAppAction => ({ type: SET_NAV_RESPONSIVE, payload }),
 }
 
 export default AppActionCreators
