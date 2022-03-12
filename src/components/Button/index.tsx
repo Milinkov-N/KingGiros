@@ -5,7 +5,6 @@ export type ButtonVariant = 'primary' | 'white' | 'black' | 'icon' | 'text'
 export type ButtonSize    = 'small' | 'medium' | 'large'
 
 export interface ButtonProps extends ComponentPropsWithoutRef<'button'> {
-  as?: 'link' | 'button'
   href?: string
   variant?: ButtonVariant
   size?: ButtonSize
@@ -15,7 +14,6 @@ export interface ButtonProps extends ComponentPropsWithoutRef<'button'> {
 
 export default function Button({
   className,
-  as = 'button',
   href,
   variant = 'primary',
   size = 'medium',
@@ -54,5 +52,5 @@ export default function Button({
     </button>
   )
 
-  return as === 'link' ? <AsLink /> : <AsButton />
+  return href ? <AsLink /> : <AsButton />
 }
