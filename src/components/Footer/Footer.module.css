@@ -39,6 +39,10 @@
   list-style: none;
 }
 
+.listIcon {
+  font-size: .8rem;
+}
+
 @media (min-width: 1200px) {
   .main {
     justify-content: start;

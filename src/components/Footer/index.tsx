@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import { FaLocationArrow, FaPhoneAlt, FaEnvelope } from 'react-icons/fa'
 
 import Container from '../Container'
 import Img from '../Img'
@@ -12,66 +13,10 @@ export default function Footer() {
     <footer className={ styles.footer }>
       <Container>
         <Stack className={ styles.main } justify='space-between' gap='lg'>
-          <Stack direction='col' align='center' gap='sm'>
-            <Img
-              src={ Logo.src }
-              size={ 120 }
-              alt='King Giros logo'
-            />
-          </Stack>
-          <div className={ styles.list }>
-            <h2 className='heading-3'>Связаться с нами</h2>
-            <ul className='flex flex-col gap-2sm'>
-              <li>
-                <Stack align='center' gap='sm'>
-                  {/* <FontAwesomeIcon icon={ faLocationArrow } style={{ fontSize: '.8rem' }} /> */}
-                  г. Воткинск, улица 1 Мая, 102
-                </Stack>
-              </li>
-              <li>
-                <Stack align='center' gap='sm'>
-                  {/* <FontAwesomeIcon icon={ faPhoneAlt } style={{ fontSize: '.8rem' }} /> */}
-                  8 (950) 838 99 99
-                </Stack>  
-              </li>
-              <li>
-                <Stack align='center' gap='sm'>
-                  {/* <FontAwesomeIcon icon={ faEnvelope } style={{ fontSize: '.8rem' }} /> */}
-                  spik@mail.ru
-                </Stack>
-              </li>
-            </ul>
-          </div>
-          <div className={ styles.list }>
-            <h2 className='heading-3'>Комания</h2>
-            <ul className='flex flex-col gap-2sm'>
-              <li>
-                <Link href='/about-us'>
-                  <a>О нас</a>
-                </Link>
-              </li>
-              <li>
-                <Link href='/work'>
-                  <a>Работа</a>
-                </Link>
-              </li>
-            </ul>
-          </div>
-          <div className={ styles.list }>
-            <h2 className='heading-3'>Информация</h2>
-            <ul className='flex flex-col gap-2sm'>
-              <li>
-                <Link href='/contact-us'>
-                  <a>Связаться с нами</a>
-                </Link>
-              </li>
-              <li>
-                <Link href='/privacy-policy'>
-                  <a>Политика конфиденциальности</a>
-                </Link>
-              </li>
-            </ul>
-          </div>
+          <LogoImage />
+          <ContactUs />
+          <Company />
+          <Info />
         </Stack>
         <hr />
         <Stack>
@@ -81,3 +26,75 @@ export default function Footer() {
     </footer>
   )
 }
+
+const LogoImage = () => (
+  <Stack direction='col' align='center' gap='sm'>
+    <Img
+      src={ Logo.src }
+      size={ 120 }
+      alt='King Giros logo'
+    />
+  </Stack>
+)
+
+const ContactUs = () => (
+  <div className={ styles.list }>
+    <h2 className='heading-3'>Связаться с нами</h2>
+    <ul className='flex flex-col gap-2sm'>
+      <li>
+        <Stack align='center' gap='sm'>
+          <FaLocationArrow className={ styles.listIcon }/>
+          г. Воткинск, улица 1 Мая, 102
+        </Stack>
+      </li>
+      <li>
+        <Stack align='center' gap='sm'>
+          <FaPhoneAlt className={ styles.listIcon }/>
+          8 (950) 838 99 99
+        </Stack>  
+      </li>
+      <li>
+        <Stack align='center' gap='sm'>
+          <FaEnvelope className={ styles.listIcon }/>
+          spik@mail.ru
+        </Stack>
+      </li>
+    </ul>
+  </div>
+)
+
+const Company = () => (
+  <div className={ styles.list }>
+    <h2 className='heading-3'>Комания</h2>
+    <ul className='flex flex-col gap-2sm'>
+      <li>
+        <Link href='/about-us'>
+          <a>О нас</a>
+        </Link>
+      </li>
+      <li>
+        <Link href='/work'>
+          <a>Работа</a>
+        </Link>
+      </li>
+    </ul>
+  </div>
+)
+
+const Info = () => (
+  <div className={ styles.list }>
+    <h2 className='heading-3'>Информация</h2>
+    <ul className='flex flex-col gap-2sm'>
+      <li>
+        <Link href='/contact-us'>
+          <a>Связаться с нами</a>
+        </Link>
+      </li>
+      <li>
+        <Link href='/privacy-policy'>
+          <a>Политика конфиденциальности</a>
+        </Link>
+      </li>
+    </ul>
+  </div>  
+)
