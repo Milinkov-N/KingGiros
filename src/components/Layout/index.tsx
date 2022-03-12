@@ -3,6 +3,7 @@ import { ReactNode } from 'react'
 
 import Footer from '../Footer'
 import Header from '../Header'
+import Nav from '../Nav'
 
 import styles from './Layout.module.css'
 
@@ -19,6 +20,7 @@ export default function Layout({ title, children }: LayoutProps) {
       </Head>
       <div className={ styles.layout }>
         <Header />
+        <Nav />
         <main className={ styles.main }>
           { children }
         </main>
