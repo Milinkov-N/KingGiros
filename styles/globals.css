@@ -68,6 +68,12 @@ input[type=number]::-webkit-outer-spin-button {
   margin: 0 auto;
 }
 
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0 0 0 / .4);
+}
+
 .heading-1 {
   font-size: 3.25rem;
   font-weight: 600;
