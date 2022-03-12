@@ -34,7 +34,7 @@ export default function Button({
       { ...all }
     >
       <Link href={ href! }>
-        <a>
+        <a className={ btnClasses.join(' ') }>
           { children ? children : label }
         </a>
       </Link>
