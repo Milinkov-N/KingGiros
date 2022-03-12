@@ -119,6 +119,22 @@ input[type=number]::-webkit-outer-spin-button {
   flex-direction: column;
 }
 
+.flex-col-reverse {
+  flex-direction: column-reverse;
+}
+
+.flex-row {
+  flex-direction: row;
+}
+
+.flex-row-reverse {
+  flex-direction: row-reverse;
+}
+
+.flex-inherit {
+  flex-direction: inherit;
+}
+
 .jc-center {
   justify-content: center;
 }
@@ -127,8 +143,32 @@ input[type=number]::-webkit-outer-spin-button {
   justify-content: space-between;
 }
 
+.jc-space-around {
+  justify-content: space-around;
+}
+
+.jc-space-evenly {
+  justify-content: space-evenly;
+}
+
+.jc-space-stretch {
+  justify-content: stretch;
+}
+
 .ai-center {
   align-items: center;
+}
+
+.ai-flex-end {
+  align-items: center;
+}
+
+.ai-flex-start {
+  align-items: center;
+}
+
+.ai-stretch {
+  align-items: stretch;
 }
 
 .col-span-2 {

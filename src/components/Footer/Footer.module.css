@@ -1,0 +1,47 @@
+.footer {
+  margin-top: auto;
+  background: var(--clr-neutral-800);
+  color: var(--clr-neutral-400);
+  padding: 2rem 0;
+}
+
+.footer h2 {
+  color: #fff;
+}
+
+.footer hr {
+  opacity: .25;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+}
+
+.footer a {
+  transition: .2s color ease;
+}
+
+.footer a:hover {
+  color: #fff;
+}
+
+.main {
+  flex-wrap: wrap;
+}
+
+.socials {
+  width: 100%;
+}
+
+.socials a {
+  padding: .75rem;
+}
+
+.list li {
+  list-style: none;
+}
+
+@media (min-width: 1200px) {
+  .main {
+    justify-content: start;
+    gap: 5rem;
+  }
+}
