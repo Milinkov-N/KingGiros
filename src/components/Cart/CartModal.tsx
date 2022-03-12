@@ -11,6 +11,7 @@ import styles from './Cart.module.css'
 import OrderSummary from './OrderSummary'
 
 export default function CartModal() {
+  const cartIsEmpty = true
   const { cartIsOpened } = useTypedSelector(state => state.appReducer)
   const { setCartOpened } = useActions()
 
@@ -31,13 +32,19 @@ export default function CartModal() {
         >
           <HiOutlineX />
         </Button>
-        <div className={ styles.grid }>
-          <div className={ styles.scroll }>
-            <CartList />
-            <AddToOrder />
-          </div>
-          <OrderSummary />
-        </div>
+        {
+          cartIsEmpty 
+            ? 'cart is empty'
+            : (
+              <div className={ styles.grid }>
+                <div className={ styles.scroll }>
+                  <CartList />
+                  <AddToOrder />
+                </div>
+                <OrderSummary />
+              </div>
+            )
+        }
       </div>
     </Modal>
   )
