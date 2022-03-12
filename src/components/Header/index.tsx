@@ -3,14 +3,34 @@ import Container from '../Container'
 import Logo from '../Logo'
 import NavModal from '../NavModal'
 import { FaPhoneAlt } from 'react-icons/fa'
+import { HiMenu } from 'react-icons/hi'
 
 import styles from './Header.module.css'
+import Button from '../Button'
+import useTypedSelector from 'src/hooks/useTypedSelector'
+import useActions from 'src/hooks/useActions'
 
 export default function Header() {
+  const { navResponsive } = useTypedSelector(state => state.appReducer)
+  const { setNavOpened } = useActions()
+
+  const openNav = () => setNavOpened(true)
+
   return (
     <>
       <header className={ styles.header }>
         <Container className={ styles.container }>
+          <>
+            { navResponsive && (
+              <Button
+                className={ styles.openNav }
+                variant='icon'
+                onClick={ openNav }
+              >
+                <HiMenu />
+              </Button>
+            )}
+          </>
           <div className={ styles.title }>
             <div>
               <h2>Вкусная еда</h2>

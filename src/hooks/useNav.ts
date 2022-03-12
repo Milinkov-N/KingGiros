@@ -56,8 +56,6 @@ export default function useNav({
       if (navWidth <= navContentWidth) {
         setNavResp(true)
       } else {
-        console.log(navWidth);
-        
         setNavResp(false)
       }
     })

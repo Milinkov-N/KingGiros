@@ -346,6 +346,12 @@ input[type=number]::-webkit-outer-spin-button {
   color: #000;
 }
 
+.btn-icon {
+  font-size: 1.75rem;
+  line-height: .5;
+  padding: 0;
+}
+
 .cart {
   margin-left: auto;
 }
