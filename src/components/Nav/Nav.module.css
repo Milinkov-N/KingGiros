@@ -52,11 +52,11 @@
   background: transparent;
 }
 
-.cart {
+.openCart {
   padding: unset;
   margin-left: auto;
 }
-
+/* 
 @media (max-width: 1130px) {
   .nav {
     position: fixed;
@@ -96,4 +96,4 @@
   .closeNav {
     display: block;
   }
-}
+} */

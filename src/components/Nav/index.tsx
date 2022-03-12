@@ -4,20 +4,39 @@ import { COLLECTIONS, PAGES_LINKS } from 'src/consts'
 import styles from './Nav.module.css'
 import Button from '../Button'
 import Dropdown from '../Dropdown'
+import { OpenCart } from '../Cart'
+import { useRef } from 'react'
+import useNav from 'src/hooks/useNav'
 
 export default function Nav() {
+  const navEl = useRef<HTMLElement>(null)
+  const navListWidth = useRef(0)
+  const openCartWidth = useRef(0)
+
+  const {
+    getNavListWidth,
+    getOpenCartWidth,
+  } = useNav({
+    navEl,
+    navListWidth,
+    openCartWidth,
+  }, styles)
+
   return (
     <nav
+      ref={ navEl }
       className={ styles.nav }
-      ref={ fixOnScroll }
     >
       <Container className={ styles.wrapper }>
-        <ul className={ styles.navList }>
+        <ul ref={ getNavListWidth } className={ styles.navList }>
           <CollectionsLinks />
           <DropdownLinks />
           <PagesLinks />
         </ul>
-        {/* TODO: open cart */}
+        <OpenCart
+          ref={ getOpenCartWidth }
+          className={ styles.openCart }
+        />
       </Container>
     </nav>
   )
@@ -89,22 +108,4 @@ function PagesLinks() {
       ))}
     </>
   )
-}
-
-function fixOnScroll(element: HTMLElement) {
-  if (!element) return
-
-  window.onscroll = () => {
-    const elRectTop = element.getBoundingClientRect().top
-
-    switch(true) {
-      case elRectTop <= 0:
-        element.classList.add(styles.navFixed)
-        break;
-
-      case elRectTop > 0:
-        element.classList.remove(styles.navFixed)
-        break;
-    }
-  }
 }

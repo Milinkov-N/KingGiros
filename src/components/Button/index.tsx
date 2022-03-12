@@ -1,10 +1,10 @@
 import Link from 'next/link'
-import { ComponentPropsWithoutRef } from 'react'
+import { ComponentPropsWithRef } from 'react'
 
 export type ButtonVariant = 'primary' | 'white' | 'black' | 'icon' | 'text'
 export type ButtonSize    = 'small' | 'medium' | 'large'
 
-export interface ButtonProps extends ComponentPropsWithoutRef<'button'> {
+export interface ButtonProps extends ComponentPropsWithRef<'button'> {
   href?: string
   variant?: ButtonVariant
   size?: ButtonSize
