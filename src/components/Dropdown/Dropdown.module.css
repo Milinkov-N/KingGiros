@@ -1,0 +1,40 @@
+.dropdown {
+  position: relative;
+}
+
+.menu {
+  position: absolute;
+  top: calc(100% + .5rem);
+  left: 0;
+  min-width: 175px;
+  background: #fff;
+  color: #000;
+  border-radius: 8px;
+  box-shadow: 0 0 20px rgba(0 0 0 / .08);
+}
+
+.btn {
+  padding: 0;
+  transition: .2s color ease-in-out;
+}
+
+.btn:hover {
+  color: var(--clr-secondary-400);
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+}
+
+.menuItemBtn {
+  display: flex;
+  color: #000;
+}
+
+.menuItemBtn:hover {
+  background: rgba(0 0 0 / .03);
+  border-radius: unset;
+} 
