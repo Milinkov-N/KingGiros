@@ -39,6 +39,19 @@ export interface IShopifyAllProducts {
     }
   }
 }
+
+export interface IShopifyCollection {
+  data: {
+    collection: {
+        products: {
+        edges: IShopifyProductEdges[]
+        pageInfo: {
+          hasNextPage: boolean
+        }
+      }
+    }
+  }
+}
 export interface IShopifyProductEdges {
   node: IShopifyProduct,
   cursor?: string

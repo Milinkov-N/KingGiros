@@ -1,14 +1,15 @@
-import CartModal from '../CartModal'
+import { CartModal } from '../Cart'
 import Container from '../Container'
 import Logo from '../Logo'
 import NavModal from '../NavModal'
+import Button from '../Button'
+import useTypedSelector from 'src/hooks/useTypedSelector'
+import useActions from 'src/hooks/useActions'
+
 import { FaPhoneAlt } from 'react-icons/fa'
 import { HiMenu } from 'react-icons/hi'
 
 import styles from './Header.module.css'
-import Button from '../Button'
-import useTypedSelector from 'src/hooks/useTypedSelector'
-import useActions from 'src/hooks/useActions'
 
 export default function Header() {
   const { navResponsive } = useTypedSelector(state => state.appReducer)
