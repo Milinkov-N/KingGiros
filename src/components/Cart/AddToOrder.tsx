@@ -25,12 +25,17 @@ export default function AddToOrder() {
 
   return (
     <div className="add-to-order">
-      <h3 className='heading-4' style={{ marginBottom: '.75em' }}>Добавить к заказу?</h3>
+      <h3
+        className='heading-4'
+        style={{ marginBottom: '.75em' }}
+      >
+        Добавить к заказу?
+      </h3>
       <Swiper
         className={ styles.swiper }
         slidesPerView={ 'auto' }
         spaceBetween={ 20 }
-        freeMode={ true }
+        freeMode={ false }
         modules={[FreeMode]}
       >
         {

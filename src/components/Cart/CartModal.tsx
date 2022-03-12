@@ -31,8 +31,10 @@ export default function CartModal() {
           <HiOutlineX />
         </Button>
         <div className={ styles.grid }>
-          <CartList />
-          <AddToOrder />
+          <div className={ styles.scroll }>
+            <CartList />
+            <AddToOrder />
+          </div>
         </div>
       </div>
     </Modal>

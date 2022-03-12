@@ -81,14 +81,6 @@
   gap: 1.25rem;
 }
 
-.imgWrapper {
-  position: relative;
-  width: auto;
-  height: 60px;
-  aspect-ratio: 1 / 1;
-  cursor: pointer;
-}
-
 .orderOfferItemTitle {
   transition: .2s color ease;
   cursor: pointer;
