@@ -13,15 +13,6 @@
   box-shadow: 0 0 20px rgba(0 0 0 / .08);
 }
 
-.btn {
-  padding: 0;
-  transition: .2s color ease-in-out;
-}
-
-.btn:hover {
-  color: var(--clr-secondary-400);
-}
-
 .list {
   display: flex;
   flex-direction: column;

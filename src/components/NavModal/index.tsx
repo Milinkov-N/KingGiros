@@ -6,7 +6,7 @@ import styles from './NavModal.module.css'
 
 export default function NavModal() {
   return (
-    <Modal show={ true } onClose={ () => console.log('gotcha bitch') }>
+    <Modal show={ false } onClose={ () => console.log('gotcha bitch') }>
       <nav className={ styles.nav }>
         <ul>
           <>

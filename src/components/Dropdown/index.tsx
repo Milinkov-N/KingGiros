@@ -21,12 +21,11 @@ export default function Dropdown({ className, btnClassName, children }: Dropdown
   const toggleShow = () => setIsShowing(value => !value)
 
   const dropdownClasses = useClassName([styles.dropdown, className])
-  const btnClasses = useClassName([styles.btn, btnClassName])
 
   return (
     <div className={ dropdownClasses }>
       <Button
-        className={ btnClasses }
+        className={ btnClassName }
         variant='text'
         label='Другое'
         onClick={ toggleShow }
