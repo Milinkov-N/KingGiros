@@ -32,13 +32,13 @@
   font-weight: 500;
 }
 
-.link {
+.link, .dropdownBtn {
   font-size: 1rem;
   padding: .5em 0;
   transition: .15s color ease;
 }
 
-.link:hover {
+.link:hover, .dropdownBtn:hover {
   color: var(--clr-secondary-400);
 }
 

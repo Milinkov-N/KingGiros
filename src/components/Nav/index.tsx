@@ -3,6 +3,7 @@ import { COLLECTIONS, PAGES_LINKS } from 'src/consts'
 
 import styles from './Nav.module.css'
 import Button from '../Button'
+import Dropdown from '../Dropdown'
 
 export default function Nav() {
   return (
@@ -51,7 +52,23 @@ function CollectionsLinks() {
 function DropdownLinks() {
   return (
     <li>
-      {/* TODO: Dropdown */}
+      <Dropdown btnClassName={ styles.dropdownBtn }>
+        { COLLECTIONS.map((collection, index) => {
+          if (index >= 8) {
+            const href = collection.isPage
+              ? `/${collection.handle}`
+              : `/#${collection.handle}`
+
+            return (
+              <Dropdown.Item
+                key={ collection.handle }
+                href={ href }
+                label={ collection.name }
+              />
+            )
+          }
+        }) }
+      </Dropdown>
     </li>
   )
 }

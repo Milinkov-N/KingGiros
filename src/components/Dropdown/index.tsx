@@ -1,10 +1,13 @@
 import { motion, AnimatePresence } from 'framer-motion'
 import { ReactNode, useState } from 'react'
+import useClassName from 'src/hooks/useClassName'
 import Button from '../Button'
 
 import styles from './Dropdown.module.css'
 
 export interface DropdownProps {
+  className?: string
+  btnClassName?: string
   children?: ReactNode
 }
 
@@ -13,14 +16,17 @@ export interface DropdownItemProps {
   href: string
 }
 
-export default function Dropdown({ children }: DropdownProps) {
+export default function Dropdown({ className, btnClassName, children }: DropdownProps) {
   const [isShowing, setIsShowing] = useState(false)
   const toggleShow = () => setIsShowing(value => !value)
 
+  const dropdownClasses = useClassName([styles.dropdown, className])
+  const btnClasses = useClassName([styles.btn, btnClassName])
+
   return (
-    <div className={ styles.dropdown }>
+    <div className={ dropdownClasses }>
       <Button
-        className={ styles.btn }
+        className={ btnClasses }
         variant='text'
         label='Другое'
         onClick={ toggleShow }

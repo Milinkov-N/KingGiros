@@ -28,18 +28,17 @@ export default function Button({
   className && btnClasses.push(className)
 
   const AsLink = () => (
-    <button
-      className={ btnClasses.join(' ') }
-      onClick={ onClick }
-      { ...all }
-    >
-      <Link href={ href! }>
-        <a className={ btnClasses.join(' ') }>
+    <Link href={ href! }>
+      <a>
+        <button
+          className={ btnClasses.join(' ') }
+          onClick={ onClick }
+          { ...all }
+        >
           { children ? children : label }
-        </a>
-      </Link>
-    </button>
-    
+        </button>
+      </a>
+    </Link>
   )
 
   const AsButton = () => (
