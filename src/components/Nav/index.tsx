@@ -11,7 +11,7 @@ import useTypedSelector from 'src/hooks/useTypedSelector'
 import styles from './Nav.module.css'
 
 export default function Nav() {
-  const navEl = useRef<HTMLDivElement>(null)
+  const navEl = useRef<HTMLElement>(null)
   const navListWidth = useRef(0)
   const openCartWidth = useRef(0)
 
@@ -20,6 +20,7 @@ export default function Nav() {
   const {
     getNavListWidth,
     getOpenCartWidth,
+    fixOnScroll
   } = useNav({
     navEl,
     navListWidth,
@@ -27,10 +28,11 @@ export default function Nav() {
   }, styles)
 
   return (
-    <div ref={ navEl }>
+    <>
       { !navResponsive && (
           <nav
             className={ styles.nav }
+            ref={ navEl }
           >
             <Container className={ styles.wrapper }>
               <ul ref={ getNavListWidth } className={ styles.navList }>
@@ -45,7 +47,7 @@ export default function Nav() {
             </Container>
           </nav>
         )}
-    </div>
+    </>
   )
 }
 

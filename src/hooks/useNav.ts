@@ -1,7 +1,7 @@
 import { useEffect, RefObject, MutableRefObject } from 'react'
 import useActions from './useActions'
 export interface useNavProps {
-  navEl: RefObject<HTMLDivElement>
+  navEl: RefObject<HTMLElement>
   navListWidth: MutableRefObject<number>
   openCartWidth: MutableRefObject<number>
 }
@@ -46,6 +46,12 @@ export default function useNav({
   useEffect(() => {
     if (!navEl.current) return
 
+    window.onresize = () => {
+      if (window.innerWidth >=1000) {
+        setNavResp(false)
+      }
+    }
+
     fixOnScroll(navEl.current)
 
     const navContentWidth = navListWidth.current + openCartWidth.current + 120
@@ -68,5 +74,6 @@ export default function useNav({
   return {
     getNavListWidth,
     getOpenCartWidth,
+    fixOnScroll
   }
 }
