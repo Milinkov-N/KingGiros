@@ -46,15 +46,15 @@ export default function useNav({
   useEffect(() => {
     if (!navEl.current) return
 
+    const navContentWidth = navListWidth.current + openCartWidth.current + 120
+
     window.onresize = () => {
-      if (window.innerWidth >=1100) {
+      if (window.innerWidth >= navContentWidth + 30) {
         setNavResp(false)
       }
     }
 
     fixOnScroll(navEl.current)
-
-    const navContentWidth = navListWidth.current + openCartWidth.current + 120
 
     const observer = new ResizeObserver((entries: ResizeObserverEntry[]) => {
       const navWidth = entries[0].contentRect.width
