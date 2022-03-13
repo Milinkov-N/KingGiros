@@ -1,8 +1,15 @@
+import useTypedSelector from 'src/hooks/useTypedSelector'
+import { currencyFormatter } from 'src/utils'
 import Button from '../Button'
 
 import styles from './Cart.module.css'
 
 export default function OrderSummary() {
+  const {
+    subtotal,
+    shipping,
+    total
+  } = useTypedSelector(state => state.cartReducer)
   return (
     <>
       <div className={ styles.orderSummary }>
@@ -11,15 +18,15 @@ export default function OrderSummary() {
           <tbody>
             <tr className={ styles.tableRow }>
               <td>Подытог</td>
-              <td>{ `0 RUB` }</td>
+              <td>{ currencyFormatter(subtotal) }</td>
             </tr>
             <tr className={ styles.tableRow }>
               <td>Доставка</td>
-              <td>0 RUB</td>
+              <td>{ shipping === 0 ? 'бесплатно' : currencyFormatter(shipping) }</td>
             </tr>
             <tr className={ styles.tableRow }>
               <td>Итого</td>
-              <td>{ `0 RUB` }</td>
+              <td>{ currencyFormatter(total) }</td>
             </tr>
           </tbody>
         </table>

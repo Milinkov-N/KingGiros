@@ -4,15 +4,11 @@ import { IShopifyAllProducts, IShopifyProductEdges } from 'src/models/shopify'
 import storefront from 'src/utils/shopify'
 
 import { CollectionList, Hero, Layout } from 'src/components'
-import useTypedSelector from 'src/hooks/useTypedSelector'
 export interface HomePageProps {
   products: IShopifyProductEdges[]
 }
 
 const Home: NextPage<HomePageProps> = ({ products }) => {
-
-  const { items } = useTypedSelector(state => state.cartReducer)
-
   return (
     <div>
       <Layout>

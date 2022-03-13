@@ -1,4 +1,4 @@
-import { CartAction, CartActionEnum, CartState, cartSubtotalAction, cartItemAction } from './types'
+import { CartAction, CartActionEnum, CartState, cartItemAction } from './types'
 import CartActionCreators from './action-creators'
 
 const initialState: CartState = {
@@ -10,53 +10,42 @@ const initialState: CartState = {
 
 export default function cartReducer(state = initialState, action: CartAction): CartState {
   switch (action.type) {
-    case CartActionEnum.ADD_TO_SUBTOTAL: {
-      const newSubtotal = state.subtotal + action.payload
-
-      isFreeShipping(newSubtotal, state)
-
-      return {
-        ...state,
-        subtotal: newSubtotal,
-        total: newSubtotal + state.shipping
-      }
-    }
-
-    case CartActionEnum.REMOVE_FROM_SUBTOTAL: {
-      const newSubtotal = state.subtotal - action.payload
-
-      isFreeShipping(newSubtotal, state)
-
-      return {
-        ...state,
-        subtotal: newSubtotal,
-        total: newSubtotal + state.shipping
-      }
-    }
-
     case CartActionEnum.SET_CART_ITEM: {
       const newCartItem = action.payload      
       const sameItem = state.items.find(item => item.id === newCartItem.id)
       const sameItemIndex = state.items.findIndex(item => item.id === newCartItem.id)
-      const newSubtotal = state.subtotal + newCartItem.price * newCartItem.amount
+      const subtotal = state.subtotal + newCartItem.price * newCartItem.amount
+      let { shipping, total } = state
+
+      if (subtotal >= 500) {
+        shipping = 0
+        total = subtotal - shipping
+      } else {
+        shipping = 350
+        total = subtotal + shipping
+      }
 
       if (!sameItem) return {
         ...state,
+        subtotal: subtotal,
+        shipping,
+        total,
         items: [
           ...state.items,
           newCartItem
         ]
       }
 
-    state.items[sameItemIndex] = {
-      ...newCartItem,
-      amount: sameItem.amount + newCartItem.amount
-    }   
+      state.items[sameItemIndex] = {
+        ...newCartItem,
+        amount: sameItem.amount + newCartItem.amount
+      }   
 
       return {
         ...state,
-        subtotal: newSubtotal + state.shipping,
-        total: newSubtotal + state.shipping,
+        subtotal,
+        shipping,
+        total,
         items: [...state.items]
       }
     }
@@ -66,28 +55,9 @@ export default function cartReducer(state = initialState, action: CartAction): C
   }
 }
 
-function isFreeShipping(subtotal: number, state: CartState) {
-  if (subtotal >= 500) {
-    return {
-      ...state,
-      subtotal: subtotal,
-      shipping: 0,
-      total: subtotal - state.shipping
-    }
-  }
-
-  return {
-    ...state,
-    subtotal: subtotal,
-    shipping: 350,
-    total: subtotal + state.shipping
-  }
-}
-
 export {
   type CartAction,
   type CartState,
-  type cartSubtotalAction,
   type cartItemAction,
   CartActionEnum,
   CartActionCreators
