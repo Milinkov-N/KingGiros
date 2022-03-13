@@ -19,8 +19,7 @@ export default function Nav() {
 
   const {
     getNavListWidth,
-    getOpenCartWidth,
-    fixOnScroll
+    getOpenCartWidth
   } = useNav({
     navEl,
     navListWidth,

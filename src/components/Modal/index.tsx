@@ -1,5 +1,5 @@
 import { motion, AnimatePresence, MotionProps } from 'framer-motion'
-import { ReactNode } from 'react'
+import { ReactNode, useEffect } from 'react'
 import Portal from '../Portal'
 
 export interface ModalProps extends MotionProps {
@@ -17,6 +17,15 @@ export default function Modal({
   transition = { duration: 0.3, ease: 'easeInOut' },
   children
 }: ModalProps) {
+
+  useEffect(() => {
+    if (show) {
+      document.body.classList.add('scroll-lock')
+    } else {
+      document.body.classList.remove('scroll-lock')
+    }
+  }, [show])
+
   return (
     <Portal selector='#portal'>
       <AnimatePresence>
