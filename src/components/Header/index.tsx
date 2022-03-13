@@ -19,7 +19,7 @@ export default function Header() {
 
   return (
     <>
-      <header className={ styles.header }>
+      <header className={ `${ styles.header } ${ navResponsive ? styles.headerResponsive : '' }` }>
         <Container className={ styles.container }>
           <>
             { navResponsive && (

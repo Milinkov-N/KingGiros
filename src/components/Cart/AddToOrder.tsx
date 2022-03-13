@@ -10,8 +10,11 @@ import 'swiper/css'
 
 import styles from './Cart.module.css'
 import { currencyFormatter } from 'src/utils'
+import useActions from 'src/hooks/useActions'
+import { ICartItem } from 'src/models/cart'
 
 export default function AddToOrder() {
+  const { addToCart } = useActions()
   const [products, setProducts] = useState<IShopifyProductEdges[]>([])
 
   useEffect(() => {
@@ -42,6 +45,17 @@ export default function AddToOrder() {
         {
           products.map(product => {
             const price = Math.floor(parseInt(product.node.priceRange.minVariantPrice.amount))
+            const image = product.node.images.edges[0].node.transformedSrc
+
+            const cartItem: ICartItem = {
+              id: product.node.id,
+              title: product.node.title,
+              handle: product.node.handle,
+              image,
+              price,
+              amount: 1
+            }
+            
             return (
               <SwiperSlide
                 key={ product.node.id }
@@ -50,17 +64,17 @@ export default function AddToOrder() {
                 <div className={ styles.addToOrderItem }>
                   <Img
                     priority
-                    src={ product.node.images.edges[0].node.transformedSrc || '/' }
+                    src={ image || '/' }
                     alt={ product.node.images.edges[0].node.altText }
                     size={ 64 }
                     layout='fill'
                     objectFit='contain'
-                    onClick={ () => console.log('TODO: handleAddToCart') }
+                    onClick={ () => addToCart(cartItem) }
                   />
                   <div>
                     <h4
                       className={ styles.orderOfferItemTitle }
-                      onClick={ () => console.log('TODO: handleAddToCart') }
+                      onClick={ () => addToCart(cartItem) }
                     >
                       { product.node.title }
                     </h4>
