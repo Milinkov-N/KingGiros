@@ -1,14 +1,26 @@
+import { ICartItem } from 'src/models/cart'
+
 export interface CartState {
-  cartIsOpened: boolean
+  items: ICartItem[]
+  subtotal: number
+  shipping: number
+  total: number
 }
 
 export enum CartActionEnum {
-  SET_CART = 'SET_CART'
+  ADD_TO_SUBTOTAL = 'ADD_TO_SUBTOTAL',
+  REMOVE_FROM_SUBTOTAL = 'REMOVE_FROM_SUBTOTAL',
+  SET_CART_ITEM = 'SET_CART_ITEM'
 }
 
-export interface setCartAction {
-  type: CartActionEnum
-  payload: boolean
+export interface cartSubtotalAction {
+  type: CartActionEnum.ADD_TO_SUBTOTAL | CartActionEnum.REMOVE_FROM_SUBTOTAL
+  payload: number
+}
+export interface cartItemAction {
+  type: CartActionEnum.SET_CART_ITEM
+  payload: ICartItem
 }
 
-export type CartAction = setCartAction
+export type CartAction = cartSubtotalAction 
+  | cartItemAction

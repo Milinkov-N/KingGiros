@@ -1,10 +1,16 @@
-import { setCartAction, CartActionEnum } from './types'
+import { ICartItem } from 'src/models/cart'
+import { cartItemAction, cartSubtotalAction, CartActionEnum } from './types'
 
-const { SET_CART } = CartActionEnum
+const {
+  ADD_TO_SUBTOTAL,
+  REMOVE_FROM_SUBTOTAL,
+  SET_CART_ITEM
+} = CartActionEnum
 
 const CartActionCreators = {
-  setOpenCart: ():setCartAction => ({ type: SET_CART, payload: true }),
-  setCloseCart: ():setCartAction => ({ type: SET_CART, payload: false }),
+  addToSubtotal: (payload: number):cartSubtotalAction => ({ type: ADD_TO_SUBTOTAL, payload }),
+  removeFromSubtotal: (payload: number):cartSubtotalAction => ({ type: REMOVE_FROM_SUBTOTAL, payload }),
+  addToCart: (payload: ICartItem):cartItemAction => ({ type: SET_CART_ITEM, payload })
 }
 
 export default CartActionCreators
