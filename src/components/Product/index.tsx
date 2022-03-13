@@ -20,6 +20,7 @@ export default function Product({ product }: ProductProps) {
 
   const cartItem: ICartItem = {
     id: product.id,
+    title: product.title,
     handle: product.handle,
     image: product.images.edges[0].node.transformedSrc,
     price,

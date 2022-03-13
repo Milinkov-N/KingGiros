@@ -6,7 +6,7 @@
   position: absolute;
   top: 0;
   right: 0;
-  width: 380px;
+  width: 420px;
   height: 100vh;
   padding: 0 11px;
   background: var(--clr-neutral-50);
@@ -48,6 +48,8 @@
 }
 
 .scroll {
+  padding-top: .5rem;
+  padding-right: .5rem;
   overflow: scroll;
 }
 
@@ -143,6 +145,94 @@
 .checkoutBtn {
   width: 100%;
   margin-bottom: 11px;
+}
+
+
+/**
+  ------- ItemList styles ------- 
+*/
+
+
+.itemsList {
+  display: grid;
+  grid-template-columns: 1fr;
+  /* grid-template-rows: repeat(6, 100px); */
+  gap: 1rem;
+  margin-bottom: 2rem;
+  /* overflow: scroll; */
+}
+
+.itemsList::-webkit-scrollbar {
+  width: 4px;
+  padding: 0 .5px;
+}
+
+.itemsList::-webkit-scrollbar-thumb {
+  background-color: var(--clr-neutral-300);
+  border-radius: 20px;
+}
+
+.itemsList::-webkit-scrollbar-corner {
+  visibility: hidden;
+}
+
+.cartItem {
+  position: relative;
+  display: flex;
+  align-items: center;
+  background: #fff;
+  border-radius: 6px;
+  padding: .5rem;
+}
+
+.itemInfo {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: .25rem;
+  font-weight: 500;
+  margin-left: .5rem;
+}
+
+.itemInfo h3 {
+  font-weight: inherit;
+  padding-right: 5px;
+  height: 3rem;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  display: -webkit-box;
+  overflow: hidden;
+}
+
+.flex {
+  height: 32px;
+  display: flex;
+  align-items: stretch;
+  gap: 1rem;
+}
+
+.itemPrice {
+  font-family: system-ui;
+  font-size: 1.15rem;
+  line-height: 1;
+  margin: auto 0;
+}
+
+.deleteItemBtn {
+  position: absolute;
+  top: .5rem;
+  right: .5rem;
+  background: none;
+  border: none;
+  font-size: 1rem;
+  color: var(--clr-neutral-700);
+  cursor: pointer;
+  transition: .2s color ease;
+}
+
+.deleteItemBtn:hover {
+  color: #e21b2b;
 }
 
 @media (max-width: 400px) {
