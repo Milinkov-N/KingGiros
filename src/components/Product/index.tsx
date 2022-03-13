@@ -8,6 +8,7 @@ import Img from '../Img'
 import styles from './Product.module.css'
 import useActions from 'src/hooks/useActions'
 import { ICartItem } from 'src/models/cart'
+import { currencyFormatter } from 'src/utils'
 
 export interface ProductProps {
   product: IShopifyProduct
@@ -49,7 +50,7 @@ export default function Product({ product }: ProductProps) {
         { product.description }
       </p>
       <div className={ styles.footer }>
-        <p className="product-price">{ `${ price } RUB` }</p>
+        <p className="product-price">{ currencyFormatter(price) }</p>
         <Button
           variant='primary'
           label='В корзину'

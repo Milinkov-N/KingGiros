@@ -9,6 +9,7 @@ import { FreeMode, } from 'swiper'
 import 'swiper/css'
 
 import styles from './Cart.module.css'
+import { currencyFormatter } from 'src/utils'
 
 export default function AddToOrder() {
   const [products, setProducts] = useState<IShopifyProductEdges[]>([])
@@ -40,6 +41,7 @@ export default function AddToOrder() {
       >
         {
           products.map(product => {
+            const price = Math.floor(parseInt(product.node.priceRange.minVariantPrice.amount))
             return (
               <SwiperSlide
                 key={ product.node.id }
@@ -48,8 +50,8 @@ export default function AddToOrder() {
                 <div className={ styles.addToOrderItem }>
                   <Img
                     priority
-                    src={ product.node.images!.edges[0].node.transformedSrc || '/' }
-                    alt={ product.node.images!.edges[0]?.node?.altText }
+                    src={ product.node.images.edges[0].node.transformedSrc || '/' }
+                    alt={ product.node.images.edges[0].node.altText }
                     size={ 64 }
                     layout='fill'
                     objectFit='contain'
@@ -62,9 +64,7 @@ export default function AddToOrder() {
                     >
                       { product.node.title }
                     </h4>
-                    <span>
-                      { Math.floor(parseInt(product.node.priceRange!.minVariantPrice.amount)) } RUB
-                      </span>
+                    <span>{ currencyFormatter(price) }</span>
                   </div>
                 </div>
               </SwiperSlide>
