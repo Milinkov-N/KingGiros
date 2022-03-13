@@ -6,13 +6,24 @@ import Button from '../Button'
 import Img from '../Img'
 
 import styles from './Product.module.css'
+import useActions from 'src/hooks/useActions'
+import { ICartItem } from 'src/models/cart'
 
 export interface ProductProps {
   product: IShopifyProduct
 }
 
 export default function Product({ product }: ProductProps) {
+  const { addToCart } = useActions()
   const price = Math.floor(+product.priceRange.minVariantPrice.amount)
+
+  const cartItem: ICartItem = {
+    id: product.id,
+    handle: product.handle,
+    image: product.images.edges[0].node.transformedSrc,
+    price,
+    amount: 1
+  } 
 
   return (
     <div className={ styles.product }>
@@ -42,7 +53,7 @@ export default function Product({ product }: ProductProps) {
         <Button
           variant='primary'
           label='В корзину'
-          onClick={ () => console.log('TODO: handleAddToCart') }
+          onClick={ () => addToCart(cartItem) }
         />
       </div>
     </div>

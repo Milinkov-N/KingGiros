@@ -47,7 +47,7 @@ export default function useNav({
     if (!navEl.current) return
 
     window.onresize = () => {
-      if (window.innerWidth >=1000) {
+      if (window.innerWidth >=1100) {
         setNavResp(false)
       }
     }

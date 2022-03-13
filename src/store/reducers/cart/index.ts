@@ -35,15 +35,10 @@ export default function cartReducer(state = initialState, action: CartAction): C
     }
 
     case CartActionEnum.SET_CART_ITEM: {
-      const newCartItem = action.payload
-      let sameItemIndex: number | undefined
-
-      const sameItem = state.items.find((item, index) => {
-        const isSameItem = item.id === newCartItem.id
-        if (isSameItem) sameItemIndex = index
-
-        return isSameItem
-      })
+      const newCartItem = action.payload      
+      const sameItem = state.items.find(item => item.id === newCartItem.id)
+      const sameItemIndex = state.items.findIndex(item => item.id === newCartItem.id)
+      const newSubtotal = state.subtotal + newCartItem.price * newCartItem.amount
 
       if (!sameItem) return {
         ...state,
@@ -53,20 +48,16 @@ export default function cartReducer(state = initialState, action: CartAction): C
         ]
       }
 
-      const newSubtotal = state.subtotal + newCartItem.price * newCartItem.amount
+    state.items[sameItemIndex] = {
+      ...newCartItem,
+      amount: sameItem.amount + newCartItem.amount
+    }   
 
       return {
         ...state,
         subtotal: newSubtotal + state.shipping,
         total: newSubtotal + state.shipping,
-        items: [
-          ...state.items.slice(0, sameItemIndex),
-          {
-            ...newCartItem,
-            amount: sameItem.amount + newCartItem.amount
-          },
-          ...state.items.slice(sameItemIndex ? sameItemIndex + 1 : 2)
-        ]
+        items: [...state.items]
       }
     }
   
