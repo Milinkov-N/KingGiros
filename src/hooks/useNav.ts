@@ -44,33 +44,28 @@ export default function useNav({
   }
 
   useEffect(() => {
-    if (!navEl.current) return () => setNavResp(false)
+    if (!navEl.current) return () => {
+      setNavResp(false)
+    }
 
     const navContentWidth = navListWidth.current + openCartWidth.current + 120
+
+    if (window.innerWidth <= navContentWidth + 30) {
+      setNavResp(true)
+    }
 
     window.onresize = () => {
       if (window.innerWidth >= navContentWidth + 30) {
         setNavResp(false)
+      } else {
+        setNavResp(true)
       }
     }
 
     fixOnScroll(navEl.current)
 
-    const observer = new ResizeObserver((entries: ResizeObserverEntry[]) => {
-      const navWidth = entries[0].contentRect.width
-
-      if (navWidth <= navContentWidth) {
-        setNavResp(true)
-      } else {
-        setNavResp(false)
-      }
-    })
-
-    observer.observe(navEl.current)
-
-    return () => {
+    return () => { 
       setNavResp(false)
-      observer.disconnect()
     }
   },[navEl])
 
