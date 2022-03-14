@@ -1,6 +1,6 @@
 import { ComponentPropsWithRef } from 'react'
 import useClassName from 'src/hooks/useClassName'
-import styles from './From.module.css'
+import styles from './Form.module.css'
 
 export default function Form({
   className,

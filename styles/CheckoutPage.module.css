@@ -1,0 +1,132 @@
+.form {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 3rem;
+}
+
+.formInputs {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  margin-bottom: 3rem;
+}
+
+.paymentTypes {
+  width: 100%;
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.paymentType {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.paymentType input {
+  order: -1;
+  width: unset;
+  margin-top: unset;
+}
+
+.orderDetails {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.orderItems {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.orderItem {
+  display: flex;
+  gap: 1rem;
+  font-family: system-ui, Segoi-UI;
+}
+
+.itemInfo {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.itemName {
+  /* font-size: 1.25rem; */
+  font-weight: 500;
+}
+
+.itemPrice {
+  font-size: 1rem;
+}
+
+.imgWrapper {
+  position: relative;
+  width: auto;
+  height: 75px;
+  aspect-ratio: 1 / 1;
+}
+
+.imgWrapper img {
+  border-radius: 8px;
+}
+
+.summaryTable {
+  width: 100%;
+}
+
+.tableRow {
+  font-weight: 400;
+  color: var(--clr-neutral-700);
+}
+
+.tableRow td:last-child {
+  margin-top: .5em;
+  text-align: right;
+}
+
+.tableRow:last-child td {
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: #000;
+  margin-top: .5em;
+  padding-top: .75rem;
+}
+
+.btn {
+  display: inline-block;
+}
+
+@media screen and (max-width: 1200px) {
+  .paymentTypes {
+    flex-direction: column;
+    align-items: start;
+  }
+
+  .formInputs {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .paymentTypes {
+    flex-direction: column;
+    align-items: start;
+  }
+
+  .formInputs {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .form {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+}

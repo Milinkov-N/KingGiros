@@ -54,6 +54,14 @@ input[type=number]::-webkit-outer-spin-button {
  margin: 0; 
 }
 
+#f {
+  background-color: transparent;
+}
+
+#f .f-menu-item:not(:first-child) {
+  display: none;
+}
+
 /**
   ------- Utility classes -------
 */
@@ -364,7 +372,6 @@ input[type=number]::-webkit-outer-spin-button {
 /**
   ------- QuantitySelector styles -------
 */
-
 
 .quantity-selector {
   display: flex;
