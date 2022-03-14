@@ -41,6 +41,7 @@ body {
   margin: 0;
   font-family: var(--ff-pf-square), BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  scroll-behavior: smooth;
 }
 
 a {

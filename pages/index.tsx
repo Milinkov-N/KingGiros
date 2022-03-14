@@ -5,6 +5,7 @@ import storefront from 'src/utils/shopify'
 
 import Layout from 'src/components/layout'
 import { CollectionList, Hero } from 'src/components'
+import { COLLECTIONS } from 'src/consts'
 export interface HomePageProps {
   products: IShopifyProductEdges[]
 }
@@ -14,14 +15,19 @@ const Home: NextPage<HomePageProps> = ({ products }) => {
     <div>
       <Layout>
         <Hero />
-        <div className='collections'>
-          <CollectionList
-            products={ products }
-            title='Шаурма'
-            sortBy={ 'shaurma' }
-            handle={ products[0].node.handle } 
-          />
-        </div>
+        { COLLECTIONS.map(collection => {
+            if (!collection.isPage) {
+              return (
+                <CollectionList
+                  key={ collection.handle }
+                  products={ products }
+                  title={ collection.name }
+                  sortBy={collection.tag }
+                  handle={ collection.handle }
+                />
+              )
+            }
+        })}
       </Layout>
     </div>
   )

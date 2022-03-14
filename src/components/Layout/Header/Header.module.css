@@ -2,6 +2,7 @@
   width: 100%;
   background: var(--clr-primary-400);
   color: #fff;
+  padding: .5rem 0;
 }
 
 .headerResponsive {

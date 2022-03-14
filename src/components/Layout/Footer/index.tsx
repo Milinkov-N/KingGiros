@@ -2,9 +2,8 @@ import Link from 'next/link'
 import { FaLocationArrow, FaPhoneAlt, FaEnvelope } from 'react-icons/fa'
 
 import { Container } from '..'
-import Img from '../../Img'
+import Logo from 'src/components/Logo'
 import Stack from '../Stack'
-import Logo from 'public/logo_2022.png'
 
 import styles from './Footer.module.css'
 
@@ -29,11 +28,7 @@ export default function Footer() {
 
 const LogoImage = () => (
   <Stack direction='col' align='center' gap='sm'>
-    <Img
-      src={ Logo.src }
-      size={ 120 }
-      alt='King Giros logo'
-    />
+    <Logo size={ 130 } />
   </Stack>
 )
 
