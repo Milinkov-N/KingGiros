@@ -44,7 +44,7 @@ export default function useNav({
   }
 
   useEffect(() => {
-    if (!navEl.current) return
+    if (!navEl.current) return () => setNavResp(false)
 
     const navContentWidth = navListWidth.current + openCartWidth.current + 120
 
@@ -68,8 +68,11 @@ export default function useNav({
 
     observer.observe(navEl.current)
 
-    return () => observer.disconnect()
-  },[navEl.current])
+    return () => {
+      setNavResp(false)
+      observer.disconnect()
+    }
+  },[navEl])
 
   return {
     getNavListWidth,
