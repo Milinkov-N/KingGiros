@@ -37,6 +37,7 @@ function CartItem({ item }: CartItemProps) {
     <div className={ styles.cartItem }>
       <Img
         priority
+        className={ styles.image }
         src={ item.image }
         alt={ item.handle }
         size={ 85 }

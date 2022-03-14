@@ -38,7 +38,7 @@ export default function Header() {
               <h3>И напитки</h3>
             </div>
           </div>
-          <Logo size={ 120 } />
+          <Logo size={ 150 } />
           <div className={ styles.delivery }>
             <p>Доставка еды <span>Воткинск</span></p>
             <a href='tel:+79508389999' className={ styles.phone }>

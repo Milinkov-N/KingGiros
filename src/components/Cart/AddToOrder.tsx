@@ -64,11 +64,10 @@ export default function AddToOrder() {
                 <div className={ styles.addToOrderItem }>
                   <Img
                     priority
+                    className={ styles.image }
                     src={ image || '/' }
                     alt={ product.node.images.edges[0].node.altText }
-                    size={ 64 }
-                    layout='fill'
-                    objectFit='contain'
+                    size={ 72 }
                     onClick={ () => addToCart(cartItem) }
                   />
                   <div>

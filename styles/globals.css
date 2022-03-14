@@ -80,7 +80,7 @@ input[type=number]::-webkit-outer-spin-button {
 .overlay {
   position: absolute;
   inset: 0;
-  background: rgba(0 0 0 / .4);
+  background: rgba(0 0 0 / .6);
 }
 
 .heading-1 {

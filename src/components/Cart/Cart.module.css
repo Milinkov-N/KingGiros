@@ -20,6 +20,12 @@
   left: -45px;
   font-size: 2rem;
   color: #fff;
+  opacity: .75;
+  transition: .1s opacity ease-in;
+}
+
+.closeCartModal:hover {
+  opacity: 1;
 }
 
 .title {
@@ -76,7 +82,8 @@
 }
 
 .addToOrderItem {
-  padding: 1rem;
+  padding: .675rem;
+  padding-right: 1.25rem;
   background: #fff;
   border-radius: 8px;
   display: flex;
@@ -92,8 +99,9 @@
   color: var(--clr-secondary-400);
 }
 
-.imgWrapper img {
+.image {
   border-radius: 8px;
+  overflow: hidden;
 }
 
 /**

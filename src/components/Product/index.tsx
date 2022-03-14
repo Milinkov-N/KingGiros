@@ -32,6 +32,7 @@ export default function Product({ product }: ProductProps) {
       <Link href={ `/products/${ product.handle }` }>
         <a className={ styles.link }>
           <Img
+            className={ styles.image }
             priority
             src={ `${ product.images.edges[0].node.transformedSrc || LogoImg.src }` }
             alt={ product.title }

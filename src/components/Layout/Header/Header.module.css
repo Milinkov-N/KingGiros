@@ -122,7 +122,7 @@
 @media (max-width: 950px) {
   .container {
     grid-template-areas:
-      'open-nav open-nav logo controls controls';
+      'open-nav logo logo logo controls';
   }
 
   .delivery {
