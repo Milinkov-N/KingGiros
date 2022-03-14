@@ -105,6 +105,34 @@
 }
 
 /**
+  ------- EmptyCart styles ------- 
+*/
+
+.emptyCart {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.emptyCartImg {
+  margin-bottom: 2rem;
+}
+
+.emptyCartTitle {
+  font-family: system-ui, 'Segoe UI', sans-serif;
+  font-size: 1.75rem;
+  font-weight: 600;
+}
+
+.emptyCartDesc {
+  font-family: system-ui, 'Segoe UI', sans-serif;
+  font-size: 1.125rem;
+  margin-bottom: 2em;
+}
+
+/**
   ------- OrderSummary styles ------- 
 */
 

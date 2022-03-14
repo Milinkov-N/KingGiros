@@ -9,6 +9,7 @@ export interface ButtonProps extends ComponentPropsWithRef<'button'> {
   variant?: ButtonVariant
   size?: ButtonSize
   label?: string
+  glowing?: boolean
   onClick?: () => void
 }
 
@@ -17,6 +18,7 @@ export default function Button({
   href,
   variant = 'primary',
   size = 'medium',
+  glowing,
   label,
   onClick,
   children,
@@ -25,6 +27,7 @@ export default function Button({
   const btnClasses = ['btn']
   btnClasses.push(`btn-${variant}`)
   btnClasses.push(`btn-${size}`)
+  glowing && btnClasses.push(`btn-primary-glowing`)
   className && btnClasses.push(className)
 
   const AsLink = () => (

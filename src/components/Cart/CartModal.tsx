@@ -6,9 +6,11 @@ import Button from '../Button'
 import Modal from '../Modal'
 import AddToOrder from './AddToOrder'
 import CartList from './CartList'
+import OrderSummary from './OrderSummary'
+import Img from '../Img'
+import EmptyCartSVG from 'public/undraw_taken.svg'
 
 import styles from './Cart.module.css'
-import OrderSummary from './OrderSummary'
 
 export default function CartModal() {
   const { items } = useTypedSelector(state => state.cartReducer)
@@ -34,7 +36,24 @@ export default function CartModal() {
         </Button>
         {
           items.length === 0
-            ? 'cart is empty'
+            ? (
+              <div className={ styles.emptyCart }>
+                <Img
+                  className={ styles.emptyCartImg }
+                  src={ EmptyCartSVG }
+                  size={ '70%' }
+                />
+                <h2 className={ styles.emptyCartTitle }>Упс...</h2>
+                <p className={ styles.emptyCartDesc }>Кажется, ваша корзина пуста</p>
+                <Button
+                  href='/'
+                  label='Перейти  в меню'
+                  size='large'
+                  glowing
+                  onClick={ closeCartModal }
+                />
+              </div>
+            )
             : (
               <div className={ styles.grid }>
                 <div className={ styles.scroll }>

@@ -17,6 +17,7 @@ export default function Hero() {
           href='/#shaurma'
           label='Перейти к витрине'
           variant='primary'
+          glowing
           size='large'
         />
       </Container>
