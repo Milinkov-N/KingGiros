@@ -1,9 +1,9 @@
 import Link from 'next/link'
 import { IShopifyProduct } from 'src/models/shopify'
 
-import LogoImg from 'public/logo_2022.png'
 import Button from '../Button'
 import Img from '../Img'
+import DefaultImg from 'public/logo_2022.png'
 
 import styles from './Product.module.css'
 import useActions from 'src/hooks/useActions'
@@ -17,12 +17,13 @@ export interface ProductProps {
 export default function Product({ product }: ProductProps) {
   const { addToCart } = useActions()
   const price = Math.floor(+product.priceRange.minVariantPrice.amount)
+  const image = product?.images?.edges[0]?.node.transformedSrc
 
   const cartItem: ICartItem = {
     id: product.id,
     title: product.title,
     handle: product.handle,
-    image: product.images.edges[0].node.transformedSrc,
+    image,
     price,
     amount: 1
   } 
@@ -34,7 +35,7 @@ export default function Product({ product }: ProductProps) {
           <Img
             className={ styles.image }
             priority
-            src={ `${ product.images.edges[0].node.transformedSrc || LogoImg.src }` }
+            src={ `${ image || DefaultImg.src }` }
             alt={ product.title }
             size={ '100%' }
             layout='fill'
