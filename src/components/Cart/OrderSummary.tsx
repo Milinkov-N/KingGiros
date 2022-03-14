@@ -4,7 +4,11 @@ import Button from '../Button'
 
 import styles from './Cart.module.css'
 
-export default function OrderSummary() {
+export interface OrderSummaryProps {
+  handle: () => void
+}
+
+export default function OrderSummary({ handle }: OrderSummaryProps) {
   const {
     subtotal,
     shipping,
@@ -36,6 +40,7 @@ export default function OrderSummary() {
         href={ '/checkout' }
         variant='primary'
         label='Оформить заказ'
+        onClick={ handle }
       />
     </>   
   )

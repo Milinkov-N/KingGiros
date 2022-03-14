@@ -3,40 +3,32 @@ import { HiMinus, HiPlus } from 'react-icons/hi'
 
 export interface QuantitySelectorProps {
   initialQuantity?: number
-  increment?: () => void
-  decrement?: () => void
   onChange?: (qty: number) => void
 }
 
 export default function QuantitySelector({
   initialQuantity = 1,
-  increment,
-  decrement,
   onChange
 }: QuantitySelectorProps) {
   const [quantity, setQuantity] = useState(initialQuantity)
 
-  if (!increment) {
-    increment = () => setQuantity(qty => {
-      onChange && onChange(qty + 1)
+  const increment = () => setQuantity(qty => {
+    onChange && onChange(qty + 1)
 
-      return qty + 1
-    })
-  }
+    return qty + 1
+  })
 
-  if (!decrement) {
-    decrement = () => setQuantity(qty => {
-      if (qty === 1) {
-        onChange && onChange(0)
+  const decrement = () => setQuantity(qty => {
+    if (qty === 1) {
+      onChange && onChange(0)
 
-        return 1
-      }
+      return 1
+    }
 
-      onChange && onChange(qty - 1)
+    onChange && onChange(qty - 1)
 
-      return qty - 1
-    })
-  }
+    return qty - 1
+  })
 
   const handleOnChange = (e: ChangeEvent<HTMLInputElement>) => {
     const { value } = e.target

@@ -1,0 +1,89 @@
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 3rem;
+}
+
+.productImage img {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+}
+
+.info {
+  background: #fff;
+  border-radius: 8px;
+}
+
+.title {
+  margin-bottom: 0.875rem;
+}
+
+.title span {
+  color: inherit;
+  margin-right: .75rem;
+}
+
+.spicy {
+  color: #ff192d;
+  font-size: .75em;
+  margin-right: .25rem;
+}
+
+.vegetarian {
+  color: #00d440;
+  font-size: .75em;
+  margin-right: .25rem;
+}
+
+.price {
+  font-size: 1.5rem;
+  font-weight: 500;
+  margin-bottom: 1em;
+}
+
+.description {
+  margin-bottom: 2rem;
+}
+
+.description p {
+  max-width: 90%;
+  margin-bottom: .5em;
+}
+
+.action {
+  display: flex;
+  align-items: stretch;
+  gap: 1rem;
+}
+
+@media (max-width: 900px) {
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  .productImage {
+    padding: 0 10vw;
+  }
+
+  .description p {
+    max-width: unset;
+  }
+}
+
+@media (max-width: 500px) {
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    margin-top: unset;
+  }
+
+  .productImage {
+    padding: unset;
+  }
+
+  .description p {
+    max-width: unset;
+  }
+}

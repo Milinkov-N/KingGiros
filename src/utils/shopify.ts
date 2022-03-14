@@ -52,9 +52,9 @@ async function getSingleProduct(handle: string): Promise<IShopifyProduct> {
     }
   `
 
-  const data = await storefront<IShopifyProduct>(query, { handle })
+  const { data } = await storefront(query, { handle })
 
-  return data
+  return data.product
 }
 
 async function recursiveCatalog(cursor: string | undefined = ''): Promise<IShopifyProductEdges[]> {

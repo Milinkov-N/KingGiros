@@ -41,7 +41,7 @@ export default function CartModal() {
                   <CartList />
                   <AddToOrder />
                 </div>
-                <OrderSummary />
+                <OrderSummary handle={ closeCartModal } />
               </div>
             )
         }
