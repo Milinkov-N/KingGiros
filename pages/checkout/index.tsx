@@ -107,6 +107,7 @@ function OrderDetails() {
           items.map(item => (
             <div className={ styles.orderItem } key={ item.id }>
                 <Img
+                  className={ styles.image }
                   priority
                   src={ item.image }
                   size={ 90 }
@@ -145,7 +146,7 @@ function OrderDetails() {
       <Button
         className={ styles.btn }
         href={ '/checkout/fondy' }
-        variant='black'
+        variant='secondary'
         label='Подтвердить заказ'
       />
     </div>

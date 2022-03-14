@@ -25,7 +25,7 @@ export default function FondyCheckout() {
         merchant_id: 1396424,
         required_rectoken: 'y',
         currency: 'RUB',
-        amount: 1,
+        amount: cartDetails.total * 100,
         order_desc: 'Demo order'
       }
     }

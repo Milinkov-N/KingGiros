@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import { ComponentPropsWithRef } from 'react'
 
-export type ButtonVariant = 'primary' | 'white' | 'black' | 'icon' | 'text'
+export type ButtonVariant = 'primary' | 'secondary' | 'icon' | 'text'
 export type ButtonSize    = 'small' | 'medium' | 'large'
 
 export interface ButtonProps extends ComponentPropsWithRef<'button'> {

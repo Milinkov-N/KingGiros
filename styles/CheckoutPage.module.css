@@ -71,8 +71,9 @@
   aspect-ratio: 1 / 1;
 }
 
-.imgWrapper img {
+.image {
   border-radius: 8px;
+  overflow: hidden;
 }
 
 .summaryTable {
@@ -98,6 +99,7 @@
 }
 
 .btn {
+  width: 100%;
   display: inline-block;
 }
 
