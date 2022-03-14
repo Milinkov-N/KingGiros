@@ -1,8 +1,8 @@
 import Link from 'next/link'
 import { FaLocationArrow, FaPhoneAlt, FaEnvelope } from 'react-icons/fa'
 
-import Container from '../Container'
-import Img from '../Img'
+import { Container } from '..'
+import Img from '../../Img'
 import Stack from '../Stack'
 import Logo from 'public/logo_2022.png'
 

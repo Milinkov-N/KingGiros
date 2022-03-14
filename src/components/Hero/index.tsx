@@ -1,4 +1,4 @@
-import Container from '../Container'
+import { Container } from '../layout'
 import Button from '../Button'
 
 import styles from './Hero.module.css'

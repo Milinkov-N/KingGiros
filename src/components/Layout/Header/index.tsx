@@ -1,8 +1,8 @@
-import { CartModal } from '../Cart'
-import Container from '../Container'
-import Logo from '../Logo'
-import NavModal from '../NavModal'
-import Button from '../Button'
+import CartModal from '../../cart'
+import { Container } from '../../layout'
+import Logo from '../../Logo'
+import NavModal from '../../NavModal'
+import Button from '../../Button'
 import useTypedSelector from 'src/hooks/useTypedSelector'
 import useActions from 'src/hooks/useActions'
 

@@ -1,31 +1,16 @@
-import Head from 'next/head'
-import { ReactNode } from 'react'
+import Layout from './Layout'
+import Container from './Container'
+import Stack from './Stack'
+import Nav from './Nav'
+import Header from './Header'
+import Footer from './Footer'
 
-import Footer from '../Footer'
-import Header from '../Header'
-import Nav from '../Nav'
+export default Layout
 
-import styles from './Layout.module.css'
-
-export interface LayoutProps {
-  title?: string
-  children?: ReactNode
-}
-
-export default function Layout({ title, children }: LayoutProps) {
-  return (
-    <>
-      <Head>
-        <title>{ title ? title : 'King Giros | Доставка еды' }</title>
-      </Head>
-      <div className={ styles.layout }>
-        <Header />
-        <Nav />
-        <main className={ styles.main }>
-          { children }
-        </main>
-        <Footer />
-      </div>
-    </>
-  )
+export {
+  Container,
+  Stack,
+  Nav,
+  Header,
+  Footer
 }

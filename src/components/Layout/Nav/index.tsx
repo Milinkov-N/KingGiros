@@ -1,12 +1,13 @@
-import Container from '../Container'
-import { COLLECTIONS, PAGES_LINKS } from 'src/consts'
-
-import Button from '../Button'
-import Dropdown from '../Dropdown'
-import { OpenCart } from '../Cart'
 import { useRef } from 'react'
+
+import { Container } from '..'
+import Button from 'src/components/Button'
+import Dropdown from 'src/components/Dropdown'
+import { OpenCart } from 'src/components/cart'
+
 import useNav from 'src/hooks/useNav'
 import useTypedSelector from 'src/hooks/useTypedSelector'
+import { COLLECTIONS, PAGES_LINKS } from 'src/consts'
 
 import styles from './Nav.module.css'
 

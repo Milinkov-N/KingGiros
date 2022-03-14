@@ -1,5 +1,5 @@
 import { IShopifyProductEdges } from 'src/models/shopify'
-import Container from '../Container'
+import { Container } from '../layout'
 import Product from '../Product'
 
 import styles from './CollectionList.module.css'

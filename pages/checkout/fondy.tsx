@@ -1,5 +1,5 @@
 import { useEffect } from 'react'
-import { Layout } from 'src/components'
+import Layout from 'src/components/layout'
 import useTypedSelector from 'src/hooks/useTypedSelector'
 
 declare let fondy: any

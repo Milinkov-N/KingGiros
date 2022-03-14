@@ -1,7 +1,8 @@
 import { GetStaticPaths, GetStaticProps } from 'next'
 import { useState } from 'react'
 
-import { Container, Img, Layout } from 'src/components'
+import Layout from 'src/components/layout'
+import { Container, Img } from 'src/components'
 import Button from 'src/components/Button'
 import QuantitySelector from 'src/components/QuantitySelector'
 import { IShopifyProduct } from 'src/models/shopify'

@@ -3,7 +3,8 @@ import type { NextPage } from 'next'
 import { IShopifyAllProducts, IShopifyProductEdges } from 'src/models/shopify'
 import storefront from 'src/utils/shopify'
 
-import { CollectionList, Hero, Layout } from 'src/components'
+import Layout from 'src/components/layout'
+import { CollectionList, Hero } from 'src/components'
 export interface HomePageProps {
   products: IShopifyProductEdges[]
 }
