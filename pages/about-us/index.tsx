@@ -1,4 +1,4 @@
-import Layout , { Container } from 'src/components/layout'
+import Layout, { Container } from '../../src/components/layout'
 import shaurmaImage from 'public/shaurmaC.png'
 import hotdogImage from 'public/hot-dogC.png'
 
