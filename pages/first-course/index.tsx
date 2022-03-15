@@ -10,7 +10,7 @@ export default function FirstCoursePage({ products }: HomePageProps) {
   const { handle, name, tag } = COLLECTIONS.find(collection => collection.tag === 'first_course')!
   
   return (
-    <Layout title='King Giros | Горячее'>
+    <Layout title='Горячее'>
       <CollectionList
         key={ handle }
         products={ products }

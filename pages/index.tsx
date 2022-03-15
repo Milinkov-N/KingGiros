@@ -13,7 +13,7 @@ export interface HomePageProps {
 const Home: NextPage<HomePageProps> = ({ products }) => {
   return (
     <div>
-      <Layout>
+      <Layout title='Главная'>
         <Hero />
         { COLLECTIONS.map(collection => {
             if (!collection.isPage) {

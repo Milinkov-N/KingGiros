@@ -8,7 +8,7 @@ import { Img, Logo } from 'src/components'
 
 export default function AboutUsPage() {
   return (
-    <Layout title='King Giros | О нас'>
+    <Layout title='О нас'>
       <Container>
         <h1 className='heading-2'>Мы <span>King Giros</span> и...</h1>
         <section className='flex flex-col gap-md margin-v-xl'>

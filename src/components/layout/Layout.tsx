@@ -15,7 +15,7 @@ export default function Layout({ title, children }: LayoutProps) {
   return (
     <>
       <Head>
-        <title>{ title ? title : 'King Giros | Доставка еды' }</title>
+        <title>{ title ? `King Giros | ${ title }` : 'King Giros | Доставка еды' }</title>
         <link rel="shortcut icon" href={ LogoImg.src } type="image/x-icon" />
       </Head>
       <div className={ styles.layout }>

@@ -8,7 +8,7 @@ import styles from 'styles/ContactUsPage.module.css'
 
 export default function ContactUsPage() {
   return (
-    <Layout title='King Giros | Связаться с нами'>
+    <Layout title='Связаться с нами'>
       <Container>
         <h2 className='heading-2'>Остались вопросы или нашли проблему на сайте?</h2>
         <div className={`${ styles.content } grid-col-2 gap-xl`}>

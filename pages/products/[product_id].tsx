@@ -40,7 +40,7 @@ export default function ProductPage({ product }: ProductPageProps) {
   }
   
   return (
-    <Layout>
+    <Layout title={ product.title }>
       <Container>
         <div className={ styles.grid }>
           <div className={ styles.productImage }>

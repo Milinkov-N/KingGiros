@@ -4,7 +4,7 @@ import styles from 'styles/PrivacyPage.module.css'
 
 export default function PrivacyPolicyPage() {
   return (
-    <Layout>
+    <Layout title='Политика конфиденциальности'>
       <Container>
         <article className={ styles.article }>
           <h1 className={ styles.mainTitle }>ПОЛИТИКА защиты и обработки персональных данных  ООО «King Giros»</h1>

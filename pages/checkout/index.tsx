@@ -9,7 +9,7 @@ import styles from 'styles/CheckoutPage.module.css'
 
 export default function Checkout() {
   return (
-    <Layout>
+    <Layout title='Оформление заказа'>
       <Container>
         <Form className={ styles.form }>
           <ContactInfo />

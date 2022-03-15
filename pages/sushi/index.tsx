@@ -10,7 +10,7 @@ export default function SushiPage({ products }: HomePageProps) {
   const sushiSetsTag = 'sushi_set'
 
   return (
-    <Layout title='King Giros | Суши, маки, роллы'>
+    <Layout title='Суши, маки, роллы'>
       <CollectionList
         key={ sushiRollsTag }
         products={ products }

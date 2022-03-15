@@ -10,7 +10,7 @@ export default function SoupsPage({ products }: HomePageProps) {
   const { handle, name, tag } = COLLECTIONS.find(collection => collection.tag === 'soup')!
 
   return (
-    <Layout title='King Giros | Супы'>
+    <Layout title='Супы'>
       <CollectionList
         key={ handle }
         products={ products }
