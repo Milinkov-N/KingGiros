@@ -8,7 +8,7 @@ import DefaultImg from 'public/logo_2022.png'
 import styles from './Product.module.css'
 import useActions from 'src/hooks/useActions'
 import { ICartItem } from 'src/models/cart'
-import { currencyFormatter } from 'src/utils'
+import { currencyFormatter, setTags } from 'src/utils'
 
 export interface ProductProps {
   product: IShopifyProduct
@@ -44,7 +44,7 @@ export default function Product({ product }: ProductProps) {
           <div className={ styles.header }>
             <h3 className={ styles.title }>
               <span>{ product.title }</span>
-              {/* { setTags(product.tags).map(item => item) } */}
+              { setTags(product.tags).map(item => item) }
             </h3>
           </div>
         </a>

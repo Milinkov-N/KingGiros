@@ -6,14 +6,14 @@ import { Img } from 'src/components'
 import Button from 'src/components/Button'
 import QuantitySelector from 'src/components/QuantitySelector'
 import { IShopifyProduct } from 'src/models/shopify'
-import { currencyFormatter } from 'src/utils'
+import { currencyFormatter, setTags } from 'src/utils'
 import { getSingleProduct, recursiveCatalog } from 'src/utils/shopify'
 import defaultImg from 'public/logo_2022.png'
-
-import styles from 'styles/ProductPage.module.css'
 import useActions from 'src/hooks/useActions'
 import { ICartItem } from 'src/models/cart'
+import RelatedProducts from 'src/components/RelatedProducts'
 
+import styles from 'styles/ProductPage.module.css'
 export interface ProductPageProps {
   product: IShopifyProduct
 }
@@ -53,10 +53,7 @@ export default function ProductPage({ product }: ProductPageProps) {
           <div className={ styles.info }>
             <h2 className={ `${styles.title} heading-2` }>
               <span>{ product?.title }</span>
-              {/* { setTags(product.tags).map( item => {
-                  return item
-                })
-              } */}
+              { setTags(product.tags).map(Tag => Tag)}
             </h2>
             <h3 className={ styles.price }>{ currencyFormatter(price) }</h3>
             <div className={ styles.description } dangerouslySetInnerHTML={{ __html: product.descriptionHtml }} />
@@ -74,6 +71,7 @@ export default function ProductPage({ product }: ProductPageProps) {
             </div>
           </div>
         </div>
+        <RelatedProducts />
       </Container>
     </Layout>
   )

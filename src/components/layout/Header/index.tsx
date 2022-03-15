@@ -21,7 +21,7 @@ export default function Header() {
     if (window.innerWidth <= 1000) {
       setNavResp(true)
     }
-  }, [setNavResp])
+  }, [])
 
   return (
     <>
