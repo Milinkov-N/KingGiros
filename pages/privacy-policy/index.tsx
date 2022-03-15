@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import Layout, { Container } from 'src/components/layout'
-import styles from '../../styles/privacypage.module.css'
+import styles from 'styles/PrivacyPage.module.css'
 
 export default function PrivacyPolicyPage() {
   return (
