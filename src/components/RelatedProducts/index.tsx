@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { ComponentPropsWithoutRef, useEffect, useState } from 'react'
 
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react'
@@ -15,7 +15,7 @@ import { IShopifyCollection, IShopifyProductEdges } from 'src/models/shopify'
 
 import styles from './RelatedProducts.module.css'
 
-export default function RelatedProducts() {
+export default function RelatedProducts({ className, ...rest }: ComponentPropsWithoutRef<'div'>) {
   const [products, setProducts] = useState<IShopifyProductEdges[]>([])
 
   useEffect(() => {
@@ -29,18 +29,18 @@ export default function RelatedProducts() {
   }, [setProducts])
 
   return (
-    <div className={ styles.wrapper }>
+    <div className={ `${ styles.wrapper } ${ className }` } { ...rest }>
       <h2 className='heading-2'>Рекомендуем</h2>
       <Swiper
         className={ styles.swiper }
-        slidesPerView={ 1 }
+        slidesPerView={ 2 }
         spaceBetween={ 10 }
         pagination={{
           clickable: true,
         }}
         breakpoints={{
           480: {
-            slidesPerView: 1,
+            slidesPerView: 2,
             spaceBetween: 20,
           },
           620: {

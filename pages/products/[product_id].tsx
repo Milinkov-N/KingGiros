@@ -71,7 +71,7 @@ export default function ProductPage({ product }: ProductPageProps) {
             </div>
           </div>
         </div>
-        <RelatedProducts />
+        <RelatedProducts className={ styles.relatedProducts } />
       </Container>
     </Layout>
   )

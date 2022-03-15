@@ -75,7 +75,7 @@
 @media (max-width: 500px) {
   .grid {
     grid-template-columns: 1fr;
-    gap: 3rem;
+    gap: 1rem;
     margin-top: unset;
   }
 
@@ -83,7 +83,15 @@
     padding: unset;
   }
 
+  .title {
+    margin-bottom: unset;
+  }
+
   .description p {
     max-width: unset;
   }
+
+  .relatedProducts {
+    padding-top: 2rem;
+}
 }
