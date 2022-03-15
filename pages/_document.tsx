@@ -4,9 +4,6 @@ export default class MyDocument extends Document {
     return (
       <Html>
         <Head>
-          <script
-            src='https://pay.fondy.eu/latest/checkout-vue/checkout.js'
-          />
           <link
             rel='stylesheet'
             href='https://pay.fondy.eu/latest/checkout-vue/checkout.css'

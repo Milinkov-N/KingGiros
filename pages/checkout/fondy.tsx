@@ -51,7 +51,7 @@ export default function FondyCheckout() {
             response_description
         )
       })
-  }, [])
+  }, [cartDetails.total])
   return (
     <Layout>
       <div id='checkout-container'></div>

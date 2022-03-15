@@ -23,7 +23,7 @@ export default function ProductPage({ product }: ProductPageProps) {
   const [quantity, setQuantity] = useState(1)
 
   const price = Math.floor(+product.priceRange.minVariantPrice.amount)
-  const image = product.images.edges[0].node.transformedSrc
+  const image = product.images.edges[0]?.node.transformedSrc || defaultImg.src
 
   const cartItem: ICartItem = {
     id: product.id,
@@ -45,7 +45,7 @@ export default function ProductPage({ product }: ProductPageProps) {
         <div className={ styles.grid }>
           <div className={ styles.productImage }>
             <Img
-              src={ image || defaultImg.src }
+              src={ image }
               size={ '100%' }
               alt='product image'
               />

@@ -26,6 +26,7 @@ export default function Logo({ className, size = 150 }: LogoProps) {
           src={ logoImage.src }
           width={ logoWidth }
           height={ logoHeight }
+          alt='King Giros logo'
         />
       </a>
     </Link>

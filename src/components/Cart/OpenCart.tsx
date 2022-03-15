@@ -32,4 +32,5 @@ const OpenCart = forwardRef<HTMLDivElement, OpenCartProps>(({ className, color }
   )
 })
 
+OpenCart.displayName = 'OpenCart'
 export default OpenCart
