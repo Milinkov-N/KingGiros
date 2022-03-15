@@ -48,6 +48,7 @@ function CartItem({ item }: CartItemProps) {
         <h3 className={ styles.itemName }>{ item.title }</h3>
         <div className={ styles.itemFlex }>
           <QuantitySelector
+            className={ styles.quantitySelector }
             initialQuantity={ item.amount }
             onChange={ handleOnChange }
           />

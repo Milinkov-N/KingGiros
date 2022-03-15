@@ -1,16 +1,20 @@
 import { ChangeEvent, useState } from 'react'
 import { HiMinus, HiPlus } from 'react-icons/hi'
+import useClassName from 'src/hooks/useClassName'
 
 export interface QuantitySelectorProps {
+  className?: string
   initialQuantity?: number
   onChange?: (qty: number) => void
 }
 
 export default function QuantitySelector({
+  className,
   initialQuantity = 1,
   onChange
 }: QuantitySelectorProps) {
   const [quantity, setQuantity] = useState(initialQuantity)
+  const classNames = useClassName(['quantity-selector', className])
 
   const increment = () => setQuantity(qty => {
     onChange && onChange(qty + 1)
@@ -46,7 +50,7 @@ export default function QuantitySelector({
   }
 
   return (
-    <div className='quantity-selector'>
+    <div className={ classNames }>
       <button className='selector-el selector-btn' onClick={ decrement }>
         <HiMinus />
       </button>
