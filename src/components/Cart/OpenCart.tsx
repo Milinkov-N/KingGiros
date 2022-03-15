@@ -7,9 +7,10 @@ import Button, { ButtonProps } from '../Button'
 
 export interface OpenCartProps extends ButtonProps {
   className?: string
+  color?: string
 }
 
-const OpenCart = forwardRef<HTMLDivElement, OpenCartProps>(({ className }, ref) => {
+const OpenCart = forwardRef<HTMLDivElement, OpenCartProps>(({ className, color }, ref) => {
   const { subtotal } = useTypedSelector(state => state.cartReducer)
   const { setCartOpened } = useActions()
   const openCartModal = () => setCartOpened(true)
@@ -21,8 +22,8 @@ const OpenCart = forwardRef<HTMLDivElement, OpenCartProps>(({ className }, ref) 
         variant='text'
         onClick={ openCartModal }
       >
-        <FaShoppingCart />
-        <span>{ currencyFormatter(subtotal) }</span>
+        <FaShoppingCart style={{ color }}/>
+        <span style={{ color }}>{ currencyFormatter(subtotal) }</span>
       </Button>
     </div>
   )
