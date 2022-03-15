@@ -1,7 +1,10 @@
+import { HiOutlineX } from 'react-icons/hi'
 import { COLLECTIONS, PAGES_LINKS } from 'src/consts'
 import useActions from 'src/hooks/useActions'
 import useTypedSelector from 'src/hooks/useTypedSelector'
 import Button from '../Button'
+import { OpenCart } from '../cart'
+import Logo from '../Logo'
 import Modal from '../Modal'
 
 import styles from './NavModal.module.css'
@@ -15,7 +18,16 @@ export default function NavModal() {
   return (
     <Modal show={ navIsOpened } onClose={ closeNav }>
       <nav className={ styles.nav }>
-        <ul>
+        <Button
+          className={ styles.closeNav }
+          variant='icon'
+          onClick={ closeNav }
+        >
+          <HiOutlineX />
+        </Button>
+        <Logo className={ styles.logo } size={ 120 } />
+        <OpenCart className={ styles.openCart }/>
+        <ul className={ styles.navList }>
           <>
             { COLLECTIONS.map(collection => {
               const href = collection.isPage
@@ -30,6 +42,7 @@ export default function NavModal() {
                     variant='text'
                     size='small'
                     label={ collection.name }
+                    onClick={ closeNav }
                   />
                 </li>
               )
@@ -44,6 +57,7 @@ export default function NavModal() {
                   variant='text'
                   size='small'
                   label={ link.name }
+                  onClick={ closeNav }
                 />
               </li>
             ))}

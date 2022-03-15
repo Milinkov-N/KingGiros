@@ -12,8 +12,11 @@ export interface OpenCartProps extends ButtonProps {
 
 const OpenCart = forwardRef<HTMLDivElement, OpenCartProps>(({ className, color }, ref) => {
   const { subtotal } = useTypedSelector(state => state.cartReducer)
-  const { setCartOpened } = useActions()
-  const openCartModal = () => setCartOpened(true)
+  const { setCartOpened, setNavOpened } = useActions()
+  const openCartModal = () => {
+    setCartOpened(true)
+    setNavOpened(false)
+  }
   
   return (
     <div ref={ ref } className={ className }>

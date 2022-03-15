@@ -10,9 +10,18 @@ import { FaPhoneAlt } from 'react-icons/fa'
 import { HiMenu } from 'react-icons/hi'
 
 import styles from './Header.module.css'
+import Link from 'next/link'
+import { useEffect } from 'react'
 
 export default function Header() {
   const { navResponsive } = useTypedSelector(state => state.appReducer)
+  const { setNavResp } = useActions()
+  
+  useEffect(() =>{
+    if (window.innerWidth <= 1000) {
+      setNavResp(true)
+    }
+  }, [])
 
   return (
     <>
@@ -62,7 +71,11 @@ const ResponsiveHeader = () => {
       >
         <HiMenu />
       </Button>
-      <h2 className={ styles.respHeaderTitle }>King Giros</h2>
+      <Link href='/'>
+        <a>
+          <h2 className={ styles.respHeaderTitle }>King Giros</h2>
+        </a>
+      </Link>
       <OpenCart className={ styles.openCart } color='#fff' />
     </div>
   )

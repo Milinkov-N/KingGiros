@@ -192,10 +192,8 @@
 .itemsList {
   display: grid;
   grid-template-columns: 1fr;
-  /* grid-template-rows: repeat(6, 100px); */
   gap: 1rem;
   margin-bottom: 2rem;
-  /* overflow: scroll; */
 }
 
 .itemsList::-webkit-scrollbar {
@@ -271,8 +269,18 @@
   color: #e21b2b;
 }
 
-@media (max-width: 400px) {
+@media (max-width: 470px) {
   .cartModal {
     width: 100vw;
+  }
+
+  .closeCartModal {
+    top: 5px;
+    left: 10px;
+    color: #000;
+  }
+
+  .scroll {
+    padding-top: 3rem;
   }
 }

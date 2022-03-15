@@ -63,10 +63,6 @@ export default function useNav({
     }
 
     fixOnScroll(navEl.current)
-
-    return () => { 
-      setNavResp(false)
-    }
   },[navEl])
 
   return {
