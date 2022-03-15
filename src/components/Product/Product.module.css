@@ -66,9 +66,14 @@
 }
 
 @media screen and (max-width: 500px) {
+  .description, .title {
+    word-break: break-all;
+  }
+
   .footer {
     flex-direction: column;
     align-items: flex-start;
+    /* margin-top: unset; */
   }
 
   .price {

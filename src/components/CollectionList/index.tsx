@@ -3,7 +3,6 @@ import { Container } from '../layout'
 import Product from '../Product'
 
 import styles from './CollectionList.module.css'
-
 export interface CollectionListProps {
   products: IShopifyProductEdges[]
   title: string 

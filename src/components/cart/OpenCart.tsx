@@ -23,6 +23,7 @@ const OpenCart = forwardRef<HTMLDivElement, OpenCartProps>(({ className, color }
       <Button
         className='flex ai-center gap-2sm'
         variant='text'
+        style={{ padding: 'unset' }}
         onClick={ openCartModal }
       >
         <FaShoppingCart style={{ color }}/>
