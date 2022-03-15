@@ -1,5 +1,5 @@
 import CartModal, { OpenCart } from '../../cart'
-import { Container } from '../../layout'
+import { Container } from '..'
 import Logo from '../../Logo'
 import NavModal from '../../NavModal'
 import Button from '../../Button'
