@@ -1,8 +1,8 @@
 import { IShopifyAllProducts, IShopifyProduct, IShopifyProductEdges } from 'src/models/shopify'
 
 export default async function storefront<T>(query: string, variables = {}): Promise<T> {
-  const url: any = process.env.NEXT_PUBLIC_API_URL
-  const accessToken: any = process.env.NEXT_PUBLIC_ACCESS_TOKEN
+  const url: any = process.env.NEXT_PUBLIC_SHOPIFY_API_URL
+  const accessToken: any = process.env.NEXT_PUBLIC_SHOPIFY_ACCESS_TOKEN
 
   const options = {
     method: 'POST',

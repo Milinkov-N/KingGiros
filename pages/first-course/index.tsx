@@ -8,10 +8,7 @@ import { HomePageProps } from 'pages'
 
 export default function FirstCoursePage({ products }: HomePageProps) {
   const { handle, name, tag } = COLLECTIONS.find(collection => collection.tag === 'first_course')!
-
-  console.log(products)
   
-
   return (
     <Layout title='King Giros | Горячее'>
       <CollectionList
