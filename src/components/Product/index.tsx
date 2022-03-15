@@ -53,8 +53,9 @@ export default function Product({ product }: ProductProps) {
         { product.description }
       </p>
       <div className={ styles.footer }>
-        <p className="product-price">{ currencyFormatter(price) }</p>
+        <p className={ styles.price }>{ currencyFormatter(price) }</p>
         <Button
+          className={ styles.btn }
           variant='primary'
           label='В корзину'
           onClick={ () => addToCart(cartItem) }
