@@ -1,4 +1,5 @@
 import '../styles/globals.css'
+import '../styles/pf-square-sans-pro.css'
 import type { AppProps } from 'next/app'
 
 import { Provider } from 'react-redux'
