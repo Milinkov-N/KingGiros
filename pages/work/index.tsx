@@ -62,7 +62,11 @@ export default function WorkPage() {
             </Form>
           </div>
           <div className='flex jc-center ai-center'>
-              <img src={ illustration.src } alt="illustration" />
+              <Img
+                src={ illustration.src }
+                size={ '80%' }
+                alt="illustration"
+              />
           </div>
         </div>
       </Container>
