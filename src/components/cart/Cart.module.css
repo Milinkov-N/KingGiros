@@ -290,13 +290,7 @@
 
   .scroll {
     padding-top: 3rem;
-  }
-
-  .itemFlex {
-    flex-direction: column;
-  }
-
-  
+  }  
 }
 
 @media (max-width: 400px) {
