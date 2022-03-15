@@ -1,0 +1,31 @@
+.card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+  font-size: 1.25rem;
+  line-height: 1.8;
+}
+
+.card img {
+  width: 190px;
+  height: auto;
+}
+
+.card.right {
+  margin-left: auto;
+  text-align: center;
+}
+
+.card.center {
+  margin: 0 auto;
+  flex-direction: column;
+  text-align: center;
+}
+
+@media (max-width: 900px) {
+  .card.right {
+    flex-direction: column-reverse;
+  }
+}
