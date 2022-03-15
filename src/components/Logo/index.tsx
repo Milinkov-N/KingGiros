@@ -1,12 +1,10 @@
 import Link from 'next/link'
 
-import Img from '../Img'
+import useClassName from 'src/hooks/useClassName'
+import Image from 'next/image'
 import logoImage from 'public/logo_2022.png'
 
 import styles from './Logo.module.css'
-import useClassName from 'src/hooks/useClassName'
-import Image from 'next/image'
-
 export interface LogoProps {
   className?: string
   size?: number
