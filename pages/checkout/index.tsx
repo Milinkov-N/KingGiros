@@ -1,3 +1,4 @@
+import { ChangeEvent, FormEvent, useEffect, useState } from 'react'
 import { Img } from 'src/components'
 import Button from 'src/components/Button'
 import Form from 'src/components/Form'
@@ -8,11 +9,25 @@ import { currencyFormatter } from 'src/utils'
 import styles from 'styles/CheckoutPage.module.css'
 
 export default function Checkout() {
+  const [paymentType, setPaymentType] = useState('on-delivery-payment')
+  const isSelected = (value: string): boolean => value === paymentType
+  const handleRadioClick = (e: ChangeEvent<HTMLInputElement>): void => setPaymentType(e.target.value)
+
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
+    console.log(e.target)
+  }
+
+  useEffect(() => console.log(paymentType), [paymentType])
+
   return (
     <Layout title='Оформление заказа'>
       <Container>
-        <Form className={ styles.form }>
-          <ContactInfo />
+        <Form className={ styles.form } onSubmit={ handleSubmit }>
+          <ContactInfo
+            isSelected={ isSelected }
+            handleRadioClick={ handleRadioClick }
+          />
           <OrderDetails />
         </Form>
       </Container>
@@ -20,7 +35,12 @@ export default function Checkout() {
   )
 }
 
-function ContactInfo() {
+export interface ContactInfoProps {
+  isSelected: (value: string) => boolean
+  handleRadioClick: (e: ChangeEvent<HTMLInputElement>) => void
+}
+
+function ContactInfo({ isSelected, handleRadioClick }: ContactInfoProps) {
   return (
     <div>
       <h2 className='heading-3'>Контактная информация</h2>
@@ -67,22 +87,35 @@ function ContactInfo() {
         <Form.Input
           className={ styles.paymentType }
           name='payment_type'
+          id='online-payment'
           type='radio'
-          label='Оплата на сайте'
+          label='Оплата на сайте (временно недоступно)'
+          value='online-payment'
+          checked={ isSelected('online-payment') }
+          onChange={ handleRadioClick }
+          disabled
           required
         />
         <Form.Input
           className={ styles.paymentType }
           name='payment_type'
+          id='on-delivery-payment'
           type='radio'
           label='Оплата при получении'
+          value='on-delivery-payment'
+          checked={ isSelected('on-delivery-payment') }
+          onChange={ handleRadioClick }
           required
         />
         <Form.Input
           className={ styles.paymentType }
           name='payment_type'
+          id='pickup'
           type='radio'
           label='Самовывоз'
+          value='pickup'
+          checked={ isSelected('pickup') }
+          onChange={ handleRadioClick }
           required
         />
       </div>
@@ -145,7 +178,8 @@ function OrderDetails() {
       </div>
       <Button
         className={ styles.btn }
-        href={ '/checkout/fondy' }
+        // href={ '/checkout/fondy' }
+        type='submit'
         variant='secondary'
         label='Подтвердить заказ'
       />

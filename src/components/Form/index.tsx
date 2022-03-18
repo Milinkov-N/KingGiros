@@ -30,13 +30,12 @@ function Input({
   type,
   label,
   required,
-  onSelect
+  onSelect,
+  ...rest
 }: InputProps) {
-  const classNames = useClassName([styles.form, className])
-
   return (
-    <div className={ classNames }>
-      <label className={ styles.label } htmlFor={ name }>
+    <div className={ className }>
+      <label className={ styles.label } htmlFor={ rest.id }>
         { label }
       </label>
       <input
@@ -46,6 +45,7 @@ function Input({
         placeholder={ placeholder }
         required={ required }
         onSelect={ onSelect }
+        { ...rest }
       />
     </div>
   )
