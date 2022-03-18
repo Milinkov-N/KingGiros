@@ -3,7 +3,7 @@ export type PaymentTypes = 'online' | 'on-delivery' | 'pickup'
 export interface UserState {
   firstName: string
   lastName: string
-  phone: number | null
+  phone: string
   email: string
   address: string
   paymentType: PaymentTypes
@@ -30,7 +30,7 @@ export interface setLastNameAction {
 
 export interface setPhoneNumberAction {
   type: UserActionEnum.SET_PHONE_NUMBER
-  payload: number
+  payload: string
 }
 
 export interface setEmailAction {

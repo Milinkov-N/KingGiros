@@ -22,7 +22,7 @@ const initialState: UserState = {
   paymentType: 'on-delivery',
 }
 
-export function userReducer(state = initialState, action: UserAction): UserState {
+export default function userReducer(state = initialState, action: UserAction): UserState {
   switch(action.type) {
     case UserActionEnum.SET_FIRST_NAME:
       return { ...state, firstName: action.payload }

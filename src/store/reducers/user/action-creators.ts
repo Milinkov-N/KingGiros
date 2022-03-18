@@ -21,7 +21,7 @@ const {
 const UserActionCreators = {
   setFirstName: (payload: string): setFirstNameAction => ({ type: SET_FIRST_NAME, payload }),
   setLastName: (payload: string): setLastNameAction => ({ type: SET_LAST_NAME, payload }),
-  setPhoneNumber: (payload: number): setPhoneNumberAction => ({ type: SET_PHONE_NUMBER, payload }),
+  setPhoneNumber: (payload: string): setPhoneNumberAction => ({ type: SET_PHONE_NUMBER, payload }),
   setEmail: (payload: string): setEmailAction => ({ type: SET_EMAIL, payload }),
   setAddress: (payload: string): setAddressAction => ({ type: SET_ADDRESS, payload }),
   setPaymentType: (payload: PaymentTypes): setPaymentAction => ({ type: SET_PAYMENT_TYPE, payload }),

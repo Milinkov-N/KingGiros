@@ -1,33 +1,27 @@
-import { ChangeEvent, FormEvent, useEffect, useState } from 'react'
+import { FormEvent, useEffect, useRef } from 'react'
+import IMask from 'imask'
+
 import { Img } from 'src/components'
 import Button from 'src/components/Button'
 import Form from 'src/components/Form'
 import Layout, { Container } from 'src/components/layout'
+import useActions from 'src/hooks/useActions'
 import useTypedSelector from 'src/hooks/useTypedSelector'
+import { PaymentTypes } from 'src/store/reducers/user'
 import { currencyFormatter } from 'src/utils'
 
 import styles from 'styles/CheckoutPage.module.css'
 
 export default function Checkout() {
-  const [paymentType, setPaymentType] = useState('on-delivery-payment')
-  const isSelected = (value: string): boolean => value === paymentType
-  const handleRadioClick = (e: ChangeEvent<HTMLInputElement>): void => setPaymentType(e.target.value)
-
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    console.log(e.target)
   }
-
-  useEffect(() => console.log(paymentType), [paymentType])
 
   return (
     <Layout title='Оформление заказа'>
       <Container>
         <Form className={ styles.form } onSubmit={ handleSubmit }>
-          <ContactInfo
-            isSelected={ isSelected }
-            handleRadioClick={ handleRadioClick }
-          />
+          <ContactInfo />
           <OrderDetails />
         </Form>
       </Container>
@@ -35,50 +29,90 @@ export default function Checkout() {
   )
 }
 
-export interface ContactInfoProps {
-  isSelected: (value: string) => boolean
-  handleRadioClick: (e: ChangeEvent<HTMLInputElement>) => void
-}
+function ContactInfo() {
+  const {
+    firstName,
+    lastName,
+    phone,
+    email,
+    address,
+    paymentType,
+  } = useTypedSelector(state => state.userReducer)
 
-function ContactInfo({ isSelected, handleRadioClick }: ContactInfoProps) {
+  const {
+    setFirstName,
+    setLastName,
+    setPhoneNumber,
+    setEmail,
+    setAddress,
+    setPaymentType,
+  } = useActions()
+
+  const PhoneNumberRef = useRef<HTMLInputElement>(null)
+
+  const isSelected = (value: PaymentTypes): boolean => value === paymentType
+  const handleRadioClick = (paymentType: PaymentTypes) => setPaymentType(paymentType)
+
+  useEffect(() =>  {
+    const firstNameEl = PhoneNumberRef.current!
+    const maskOptions = {
+      mask: '+{7} (000) 000-00-00'
+    };
+    const mask = IMask(firstNameEl, maskOptions)
+
+    setPhoneNumber(mask.value)    
+  }, [phone])
+
   return (
     <div>
       <h2 className='heading-3'>Контактная информация</h2>
       <div className={ styles.formInputs }>
         <Form.Input
+          id='firstNameInput'
+          type='text'
           name='firstname'
           placeholder='Никита'
-          type='text'
-          label='Имя'
+          label='Имя*'
+          value={ firstName }
+          onChange={ (e) => setFirstName(e.target.value) }
           required
         />
         <Form.Input
+          type='text'
           name='lastname'
           placeholder='Милиньков'
-          type='text'
           label='Фамилия'
+          value={ lastName }
+          onChange={ (e) => setLastName(e.target.value) }
         />
         <Form.Input
           className='col-span-2'
-          name='address'
-          placeholder='ул. 1 Мая, 28 п.6 кв. 74'
           type='text'
-          label='Адрес'
+          name='address'
+          placeholder='ул. 1 Мая, 28 п.6 кв. 74'        
+          label='Адрес*'
+          value={ address }
+          onChange={ (e) => setAddress(e.target.value) }
           required
         />
         <Form.Input
           className='col-span-2'
+          type='email'
           name='email'
           placeholder='example@gmail.com'
-          type='email'
           label='Эл. почта'
+          value={ email }
+          onChange={ (e) => setEmail(e.target.value) }
         />
         <Form.Input
+          ref={ PhoneNumberRef }
           className='col-span-2'
+          type='tеl'
           name='phone'
           placeholder='8 (982) 992-39-59'
-          type='tеl'
-          label='Телефон'
+          label='Телефон*'
+          value={ `${ phone || '' }` }
+          onChange={ (e) => setPhoneNumber(e.target.value) }
           required
         />
       </div>
@@ -87,24 +121,24 @@ function ContactInfo({ isSelected, handleRadioClick }: ContactInfoProps) {
         <Form.Input
           className={ styles.paymentType }
           name='payment_type'
-          id='online-payment'
+          id='online'
           type='radio'
           label='Оплата на сайте (временно недоступно)'
-          value='online-payment'
-          checked={ isSelected('online-payment') }
-          onChange={ handleRadioClick }
+          value='online'
+          checked={ isSelected('online') }
+          onChange={ () => handleRadioClick('online') }
           disabled
           required
         />
         <Form.Input
           className={ styles.paymentType }
           name='payment_type'
-          id='on-delivery-payment'
+          id='on-delivery'
           type='radio'
           label='Оплата при получении'
-          value='on-delivery-payment'
-          checked={ isSelected('on-delivery-payment') }
-          onChange={ handleRadioClick }
+          value='on-delivery'
+          checked={ isSelected('on-delivery') }
+          onChange={ () => handleRadioClick('on-delivery') }
           required
         />
         <Form.Input
@@ -115,7 +149,7 @@ function ContactInfo({ isSelected, handleRadioClick }: ContactInfoProps) {
           label='Самовывоз'
           value='pickup'
           checked={ isSelected('pickup') }
-          onChange={ handleRadioClick }
+          onChange={ () => handleRadioClick('pickup') }
           required
         />
       </div>

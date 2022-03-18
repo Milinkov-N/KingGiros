@@ -1,4 +1,4 @@
-import { ComponentPropsWithRef } from 'react'
+import { ComponentPropsWithRef, forwardRef } from 'react'
 import useClassName from 'src/hooks/useClassName'
 import styles from './Form.module.css'
 
@@ -23,7 +23,7 @@ export interface InputProps extends ComponentPropsWithRef<'input'> {
   label: string
 }
 
-function Input({
+const Input = forwardRef<HTMLInputElement, InputProps>(({
   className,
   name,
   placeholder,
@@ -32,13 +32,14 @@ function Input({
   required,
   onSelect,
   ...rest
-}: InputProps) {
+}: InputProps, ref) => {
   return (
     <div className={ className }>
       <label className={ styles.label } htmlFor={ rest.id }>
         { label }
       </label>
       <input
+        ref={ ref }
         className={ styles.input }
         type={ type }
         name={ name }
@@ -49,7 +50,9 @@ function Input({
       />
     </div>
   )
-}
+})
+
+Input.displayName = 'Input'
 
 
 export interface TextareaProps extends ComponentPropsWithRef<'textarea'> {
