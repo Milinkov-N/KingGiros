@@ -60,7 +60,7 @@ function ContactInfo({ isSelected, handleRadioClick }: ContactInfoProps) {
         />
         <Form.Input
           className='col-span-2'
-          name='adress'
+          name='address'
           placeholder='ул. 1 Мая, 28 п.6 кв. 74'
           type='text'
           label='Адрес'
