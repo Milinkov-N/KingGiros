@@ -9,23 +9,27 @@ export interface handleSubmitOptions {
   total: number
 }
 
-export function handleSubmit(
-  onSuccess: () => void,
-  onError: () => void,
-  { items, userInfo, total }: handleSubmitOptions) {
-  return (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault()
-
-    const orderDetails = getCartItemsStr(items)
-    const text = newOrderMessage(userInfo, orderDetails, total)
-    const chat_id = `${ process.env.NEXT_PUBLIC_TELEGRAM_KG_CHAT_ID }`
-
-    async function fetchDataToTelegram() {
-      const res = await sendBotMessage(chat_id, text)
-
-      res ? onSuccess() : onError()
+export default function useCheckout() {
+  function handleSubmit(
+    onSuccess: () => void,
+    onError: () => void,
+    { items, userInfo, total }: handleSubmitOptions) {
+    return (e: FormEvent<HTMLFormElement>) => {
+      e.preventDefault()
+  
+      const orderDetails = getCartItemsStr(items)
+      const text = newOrderMessage(userInfo, orderDetails, total)
+      const chat_id = `${ process.env.NEXT_PUBLIC_TELEGRAM_KG_CHAT_ID }`
+  
+      async function fetchDataToTelegram() {
+        const res = await sendBotMessage(chat_id, text)
+  
+        res ? onSuccess() : onError()
+      }
+  
+      fetchDataToTelegram()
     }
-
-    fetchDataToTelegram()
   }
+
+  return handleSubmit
 }

@@ -4,13 +4,13 @@ import { useEffect } from 'react'
 import Form from 'src/components/Form'
 import Layout, { Container } from 'src/components/layout'
 import { ContactInfo, OrderDetails } from 'src/components/checkout'
-import useTypedSelector from 'src/hooks/useTypedSelector'
-import { handleSubmit } from 'src/hooks/useCheckout'
+import { useTypedSelector, useCheckout } from 'src/hooks'
 
 import styles from 'styles/CheckoutPage.module.css'
 
 export default function Checkout() {
   const router = useRouter()
+  const handleSubmit = useCheckout()
   const userInfo = useTypedSelector(state => state.userReducer)
   const { items, total } = useTypedSelector(state => state.cartReducer)
 
