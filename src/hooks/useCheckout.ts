@@ -3,7 +3,16 @@ import { ICartItem } from 'src/models/cart'
 import { UserState } from 'src/store/reducers/user'
 import { getCartItemsStr, newOrderMessage, sendBotMessage } from 'src/utils'
 
-export function handleSubmit(items: ICartItem[], userInfo: UserState, total: number) {
+export interface handleSubmitOptions {
+  items: ICartItem[]
+  userInfo: UserState
+  total: number
+}
+
+export function handleSubmit(
+  onSuccess: () => void,
+  onError: () => void,
+  { items, userInfo, total }: handleSubmitOptions) {
   return (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
 
@@ -14,9 +23,7 @@ export function handleSubmit(items: ICartItem[], userInfo: UserState, total: num
     async function fetchDataToTelegram() {
       const res = await sendBotMessage(chat_id, text)
 
-      res
-        ? console.log('successfully send order to Telegram!')
-        : console.log('Oops... something went wrong with sending order to Telegram') 
+      res ? onSuccess() : onError()
     }
 
     fetchDataToTelegram()
