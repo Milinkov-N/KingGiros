@@ -16,6 +16,7 @@ export enum UserActionEnum {
   SET_EMAIL        = 'SET_EMAIL',
   SET_ADDRESS      = 'SET_ADDRESS',
   SET_PAYMENT_TYPE = 'SET_PAYMENT_TYPE',
+  RESET_USER       = 'RESET_USER'
 }
 
 export interface setFirstNameAction {
@@ -48,9 +49,14 @@ export interface setPaymentAction {
   payload: PaymentTypes
 }
 
+export interface resetUser {
+  type: UserActionEnum.RESET_USER
+}
+
 export type UserAction = setFirstNameAction
   | setLastNameAction
   | setPhoneNumberAction
   | setEmailAction
   | setAddressAction
   | setPaymentAction
+  | resetUser

@@ -15,7 +15,8 @@ const {
   SET_PHONE_NUMBER,
   SET_EMAIL,
   SET_ADDRESS,
-  SET_PAYMENT_TYPE
+  SET_PAYMENT_TYPE,
+  RESET_USER
 } = UserActionEnum
 
 const UserActionCreators = {
@@ -25,6 +26,7 @@ const UserActionCreators = {
   setEmail: (payload: string): setEmailAction => ({ type: SET_EMAIL, payload }),
   setAddress: (payload: string): setAddressAction => ({ type: SET_ADDRESS, payload }),
   setPaymentType: (payload: PaymentTypes): setPaymentAction => ({ type: SET_PAYMENT_TYPE, payload }),
+  resetState: () => ({ type: RESET_USER })
 }
 
 export default UserActionCreators

@@ -5,6 +5,7 @@ const initialState: AppState = {
   cartIsOpened: false,
   navIsOpened: false,
   navResponsive: false,
+  orderSubmitted: false,
 }
 
 export default function appReducer(state = initialState, action: AppAction): AppState {
@@ -15,7 +16,8 @@ export default function appReducer(state = initialState, action: AppAction): App
       return { ...state, navIsOpened: action.payload }
     case AppActionEnum.SET_NAV_RESPONSIVE:
       return { ...state, navResponsive: action.payload }
-  
+    case AppActionEnum.SET_ORDER_SUBMITTED:
+      return { ...state, orderSubmitted: action.payload }
     default:
       return state
   }

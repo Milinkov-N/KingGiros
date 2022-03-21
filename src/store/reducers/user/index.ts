@@ -16,7 +16,7 @@ import UserActionCreators from './action-creators'
 const initialState: UserState = {
   firstName: '',
   lastName: '',
-  phone: null,
+  phone: '',
   email: '',
   address: '',
   paymentType: 'on-delivery',
@@ -36,7 +36,8 @@ export default function userReducer(state = initialState, action: UserAction): U
       return { ...state, address: action.payload }
     case UserActionEnum.SET_PAYMENT_TYPE:
       return { ...state, paymentType: action.payload }
-  
+    case UserActionEnum.RESET_USER: 
+      return { ...initialState }
     default:
       return state
   }

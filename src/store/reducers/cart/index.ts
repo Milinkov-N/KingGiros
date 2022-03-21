@@ -12,8 +12,8 @@ import CartActionCreators from './action-creators'
 const initialState: CartState = {
   items: [],
   subtotal: 0,
-  shipping: 350,
-  total: 350
+  shipping: 150,
+  total: 150
 }
 
 export default function cartReducer(state = initialState, action: CartAction): CartState {
@@ -89,6 +89,9 @@ export default function cartReducer(state = initialState, action: CartAction): C
         items: [...state.items]
       }
     }
+
+    case CartActionEnum.RESET_CART: 
+      return { ...initialState }
   
     default:
       return state
@@ -112,7 +115,7 @@ function handleCartDetails({
     shipping = 0
     total = subtotal - shipping
   } else {
-    shipping = 350
+    shipping = 150
     total = subtotal + shipping
   }
 
