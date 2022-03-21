@@ -64,8 +64,13 @@ export function newOrderMessage({
   email,
   paymentType
 }: UserState, orderDetails: string, total: number): string {
+  const currentDate = new Date()
+  const dateStr = currentDate.toLocaleDateString()
+  const timeStr = currentDate.toLocaleTimeString()
+
   return `
 Новый заказ на сайте KingGiros!
+${ dateStr } / ${ timeStr }
 
 ИНФОРМАЦИЯ О КЛИЕНТЕ:
 Имя - ${ firstName } ${ lastName }
