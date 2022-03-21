@@ -1,9 +1,8 @@
 import { useRouter } from 'next/router'
-import { useEffect } from 'react'
-
+import { useEffect, useState } from 'react'
 import Form from 'src/components/Form'
 import Layout, { Container } from 'src/components/layout'
-import { ContactInfo, OrderDetails } from 'src/components/checkout'
+import { ContactInfo, OrderDetails, Error } from 'src/components/checkout'
 import { useTypedSelector, useCheckout, useActions } from 'src/hooks'
 
 import styles from 'styles/CheckoutPage.module.css'
@@ -15,6 +14,7 @@ export default function Checkout() {
   const userInfo = useTypedSelector(state => state.userReducer)
   const { items, total } = useTypedSelector(state => state.cartReducer)
   const { resetCart, resetState, setOrderSubmitted } = useActions()
+  const [showError, setShowError] = useState(false)
 
   const onSuccess = () => {
     setOrderSubmitted(true)
@@ -23,7 +23,7 @@ export default function Checkout() {
     resetState()
   }
 
-  const onError = () => console.log('Something went wrong')
+  const onError = () => setShowError(true)
 
   useEffect(() =>{
     if (items.length <= 0 && !orderSubmitted) {
@@ -34,6 +34,10 @@ export default function Checkout() {
   return (
     <Layout title='Оформление заказа'>
       <Container>
+        <Error
+          show={ showError }
+          onClose={ () => setShowError(false) }
+        />
         { items.length > 0 && (
           <Form
             className={ styles.form }
@@ -41,7 +45,6 @@ export default function Checkout() {
           >
             <ContactInfo />
             <OrderDetails />
-            {/* TODO: Popup Modal for order status completion */}
           </Form>
         )}
       </Container>
