@@ -1,6 +1,7 @@
 import { motion, AnimatePresence } from 'framer-motion'
-import { ReactNode, useState } from 'react'
+import { ReactNode, useRef, useState } from 'react'
 import useClassName from 'src/hooks/useClassName'
+import useOutsideClick from 'src/hooks/useOutsideClick'
 import Button from '../Button'
 
 import styles from './Dropdown.module.css'
@@ -17,10 +18,15 @@ export interface DropdownItemProps {
 }
 
 export default function Dropdown({ className, btnClassName, children }: DropdownProps) {
+  const drodownRef = useRef(null)
   const [isShowing, setIsShowing] = useState(false)
+  const dropdownClasses = useClassName([styles.dropdown, className])
+
   const toggleShow = () => setIsShowing(value => !value)
 
-  const dropdownClasses = useClassName([styles.dropdown, className])
+  const handleClickOutside = () => setIsShowing(false)
+
+  useOutsideClick(drodownRef, handleClickOutside)
 
   return (
     <div className={ dropdownClasses }>
@@ -33,6 +39,7 @@ export default function Dropdown({ className, btnClassName, children }: Dropdown
       <AnimatePresence>
         { isShowing && (
           <motion.div
+            ref={ drodownRef }
             className={ styles.menu }
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
