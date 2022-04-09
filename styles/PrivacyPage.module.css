@@ -1,3 +1,48 @@
+.article ol {
+  counter-reset: item;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-size: 1rem;
+}
+
+.article ol > li {
+  counter-increment: item;
+  /* width: fit-content; */
+  font-weight: bolder;
+  margin-left: 1em;
+  /* margin: 1em auto; */
+}
+
+.article ol > li > h2 {
+  width: fit-content;
+  font-size: 1.125em;
+  margin: .75em 0;
+}
+
+.article ol ol > li {
+  display: block;
+  width: initial;
+  line-height: 1.5;
+  font-weight: normal;
+  text-align: justify;
+  margin: initial;
+}
+
+.article ol ol > li:before {
+  content: counters(item, ".") ". ";
+  margin-left: 0;
+}
+
+.article ul {
+  margin: .25em 0;
+}
+
+.article ul li {
+  list-style: disc;
+  font-weight: normal;
+  line-height: 1.5;
+  margin-left: 2em;
+}
+
 .article p {
   line-height: 1.5;
 }

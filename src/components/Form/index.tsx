@@ -1,4 +1,5 @@
-import { ComponentPropsWithRef, forwardRef } from 'react'
+import { ComponentPropsWithRef, forwardRef, useEffect } from 'react'
+import IMask from 'imask'
 import useClassName from 'src/hooks/useClassName'
 import styles from './Form.module.css'
 
@@ -25,12 +26,7 @@ export interface InputProps extends ComponentPropsWithRef<'input'> {
 
 const Input = forwardRef<HTMLInputElement, InputProps>(({
   className,
-  name,
-  placeholder,
-  type,
   label,
-  required,
-  onSelect,
   ...rest
 }: InputProps, ref) => {
   return (
@@ -41,11 +37,6 @@ const Input = forwardRef<HTMLInputElement, InputProps>(({
       <input
         ref={ ref }
         className={ styles.input }
-        type={ type }
-        name={ name }
-        placeholder={ placeholder }
-        required={ required }
-        onSelect={ onSelect }
         { ...rest }
       />
     </div>
@@ -54,6 +45,20 @@ const Input = forwardRef<HTMLInputElement, InputProps>(({
 
 Input.displayName = 'Input'
 
+function MaskedTel(props: InputProps) {
+  const setInputMask = (el: HTMLInputElement) => {
+    el && IMask(el as HTMLElement, {
+      mask: '+{7} (000) 000-00-00'
+    })
+  }
+
+  return (
+    <Input
+      ref={ setInputMask }
+      { ...props } 
+    />
+  )
+}
 
 export interface TextareaProps extends ComponentPropsWithRef<'textarea'> {
   label: string
@@ -116,6 +121,7 @@ function Select({
   )
 }
 
-Form.Input    = Input
-Form.Textarea = Textarea
-Form.Select   = Select
+Form.Input     = Input
+Form.MaskedTel = MaskedTel
+Form.Textarea  = Textarea
+Form.Select    = Select

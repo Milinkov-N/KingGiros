@@ -1,0 +1,7 @@
+export { default as CommonRules } from './CommonRules'
+export { default as GoodsReturn } from './GoodsReturn'
+export { default as PersonalDataGoal } from './PersonalDataGoal'
+export { default as PersonalDataTerms } from './PersonalDataTerms'
+export { default as PersonalDataProtection } from './PersonalDataProtection'
+export { default as PolicyChange } from './PolicyChange'
+export { default as FinalTerms } from './FinalTerms'

@@ -12,7 +12,7 @@ import CartActionCreators from './action-creators'
 const initialState: CartState = {
   items: [],
   subtotal: 0,
-  shipping: 150,
+  shipping: 100,
   total: 150
 }
 
@@ -115,7 +115,7 @@ function handleCartDetails({
     shipping = 0
     total = subtotal - shipping
   } else {
-    shipping = 150
+    shipping = 100
     total = subtotal + shipping
   }
 

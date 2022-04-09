@@ -19,7 +19,7 @@ export default function Footer() {
         </Stack>
         <hr />
         <Stack>
-          <span>Copyright © 2022 by King Giros. All rights reserved.</span>
+          <span><strong>King Giros</strong> © { new Date().getFullYear() }. Все права защищены.</span>
         </Stack>
       </Container>
     </footer>

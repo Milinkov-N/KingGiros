@@ -5,7 +5,7 @@
   z-index: 1000;
   background: #fff;
   box-shadow: 0 0 15px rgba( 0 0 0 / 0);
-  transition: .2s box-shadow ease, .3s left ease;
+  transition: .2s all ease, .3s left ease;
 }
 
 @supports(backdrop-filter: blur(6px)) {
@@ -16,7 +16,15 @@
 }
 
 .navFixed {
-  box-shadow: 0 0 20px rgba( 0 0 0 / .05);
+  background-color: var(--clr-primary-400);
+  box-shadow: 0 0 20px rgba( 0 0 0 / .2);
+}
+
+.navFixed .link,
+.navFixed .openCart span,
+.navFixed .openCart svg,
+.navFixed .dropdownBtn {
+  color: #fff;
 }
 
 .wrapper {

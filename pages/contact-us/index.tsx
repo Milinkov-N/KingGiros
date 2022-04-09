@@ -10,11 +10,11 @@ export default function ContactUsPage() {
   return (
     <Layout title='Связаться с нами'>
       <Container>
-        <h2 className='heading-2'>Остались вопросы или нашли проблему на сайте?</h2>
+        <h2 className='heading-2'>По вопросам сотрудничества и обратная связь</h2>
         <div className={`${ styles.content } grid-col-2 gap-xl`}>
           <div className='flex flex-col'>
             <div className={ styles.info }>
-              <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Accusantium debitis tempora sapiente corrupti distinctio inventore suscipit esse voluptatum maxime perspiciatis, officia iure facilis ut impedit,</p>
+              <p>Если вы нашли проблему на сайте, у вас возникли вопросы или хотите посотрудничать на индивидуальных условиях - заполните форму ниже и с вами свяжется наш оператор по электронной почте или телефону</p>
               <ul className='flex flex-col gap-sm'>
                 <li>
                   <Stack align='center' gap='md'>
@@ -41,7 +41,7 @@ export default function ContactUsPage() {
               <Form.Input
                 className='col-span-2'
                 name='firstname'
-                placeholder='Никита'
+                placeholder='Иван'
                 type='text'
                 label='Имя'
                 required
@@ -49,7 +49,7 @@ export default function ContactUsPage() {
               <Form.Input
                 className='col-span-2'
                 name='lastname'
-                placeholder='Милиньков'
+                placeholder='Иванов'
                 type='text'
                 label='Фамилия'
               />
@@ -59,6 +59,13 @@ export default function ContactUsPage() {
                 placeholder='example@gmail.com'
                 type='email'
                 label='Эл. почта'
+              />
+              <Form.MaskedTel
+                className='col-span-4'
+                name='phone'
+                placeholder='8 (950) 500-50-50'
+                type='tel'
+                label='Телефон'
               />
               <Form.Textarea
                 className='col-span-4'

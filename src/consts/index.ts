@@ -18,6 +18,36 @@ export const COLLECTIONS: ICollections[] = [
     isPage: false
   },
   {
+    name: 'Хот-доги',
+    handle: 'hotdogs',
+    tag: 'hotdog',
+    isPage: false
+  },
+  {
+    name: 'Чебуреки',
+    handle: 'chebureki',
+    tag: 'cheburek',
+    isPage: false
+  },
+  {
+    name: 'Добавки',
+    handle: 'addons',
+    tag: 'addon',
+    isPage: false
+  },
+  {
+    name: 'Супчики',
+    handle: 'soups',
+    tag: 'soup',
+    isPage: true
+  },
+  {
+    name: 'Второе',
+    handle: 'first-course',
+    tag: 'first_course',
+    isPage: true
+  },
+  {
     name: 'Пицца',
     handle: 'pizza',
     tag: 'pizza',
@@ -36,12 +66,6 @@ export const COLLECTIONS: ICollections[] = [
     isPage: true
   },
   {
-    name: 'Чебуреки',
-    handle: 'chebureki',
-    tag: 'cheburek',
-    isPage: false
-  },
-  {
     name: 'Напитки',
     handle: 'beverages',
     tag: 'beverage',
@@ -51,12 +75,6 @@ export const COLLECTIONS: ICollections[] = [
     name: 'Закуски',
     handle: 'snacks',
     tag: 'snack',
-    isPage: false
-  },
-  {
-    name: 'Добавки',
-    handle: 'addons',
-    tag: 'addon',
     isPage: false
   },
   {
@@ -72,18 +90,6 @@ export const COLLECTIONS: ICollections[] = [
     isPage: false
   },
   {
-    name: 'Супы',
-    handle: 'soups',
-    tag: 'soup',
-    isPage: true
-  },
-  {
-    name: 'Горячее',
-    handle: 'first-course',
-    tag: 'first_course',
-    isPage: true
-  },
-  {
     name: 'Комбо',
     handle: 'combo',
     tag: 'combo',
@@ -92,6 +98,10 @@ export const COLLECTIONS: ICollections[] = [
 ]
 
 export const PAGES_LINKS: IPageLinks[] = [
+  {
+    name: 'Сотрудничество',
+    href: '/contact-us'
+  },
   {
     name: 'Работа',
     href: '/work'
