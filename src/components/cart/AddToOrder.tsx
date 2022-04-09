@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 
 import { IShopifyCollection, IShopifyProductEdges } from 'src/models/shopify'
 import storefront from 'src/utils/shopify'
-import Img from '../Img'
+import { Img } from 'src/components'
 
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { FreeMode, } from 'swiper'

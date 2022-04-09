@@ -1,17 +1,15 @@
-import CartModal, { OpenCart } from '../../cart'
-import { Container } from '..'
-import Logo from '../../Logo'
-import NavModal from '../../NavModal'
-import Button from '../../Button'
-import useTypedSelector from 'src/hooks/useTypedSelector'
-import useActions from 'src/hooks/useActions'
-
+import Link from 'next/link'
+import { useEffect } from 'react'
 import { FaPhoneAlt } from 'react-icons/fa'
 import { HiMenu } from 'react-icons/hi'
 
+import CartModal, { OpenCart } from 'src/components/cart'
+import { Container } from '..'
+import { Button, Logo, NavModal } from 'src/components'
+import useTypedSelector from 'src/hooks/useTypedSelector'
+import useActions from 'src/hooks/useActions'
+
 import styles from './Header.module.css'
-import Link from 'next/link'
-import { useEffect } from 'react'
 
 export default function Header() {
   const { navResponsive } = useTypedSelector(state => state.appReducer)

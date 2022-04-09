@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react'
 import IMask from 'imask'
 
-import Form from 'src/components/Form'
+import { Form } from 'src/components'
 import useActions from 'src/hooks/useActions'
 import useTypedSelector from 'src/hooks/useTypedSelector'
 import { PaymentTypes } from 'src/store/reducers/user'

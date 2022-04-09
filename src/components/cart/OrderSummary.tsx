@@ -1,6 +1,6 @@
 import useTypedSelector from 'src/hooks/useTypedSelector'
 import { currencyFormatter } from 'src/utils'
-import Button from '../Button'
+import { Button } from 'src/components'
 
 import styles from './Cart.module.css'
 

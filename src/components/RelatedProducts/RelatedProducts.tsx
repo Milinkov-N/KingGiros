@@ -9,7 +9,7 @@ import 'swiper/css/pagination'
 
 // import required modules
 import { Pagination } from 'swiper'
-import Product from '../Product'
+import { Product } from 'src/components'
 import storefront from 'src/utils/shopify'
 import { IShopifyCollection, IShopifyProductEdges } from 'src/models/shopify'
 

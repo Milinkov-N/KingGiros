@@ -1,10 +1,9 @@
-import { Container } from 'src/components/layout'
-import Layout from 'src/components/layout'
+import { Img, Logo } from 'src/components'
+import Layout, { Container } from 'src/components/layout'
 import shaurmaImage from 'public/shaurmaC.png'
 import hotdogImage from 'public/hot-dogC.png'
 
 import styles from 'styles/AboutUsPage.module.css'
-import { Img, Logo } from 'src/components'
 
 export default function AboutUsPage() {
   return (

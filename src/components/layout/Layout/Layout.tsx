@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import { ReactNode } from 'react'
 
-import{ Footer, Header, Nav } from '.'
+import { Footer, Header, Nav } from '..'
 import LogoImg from 'public/logo_2022.png'
 
 import styles from './Layout.module.css'

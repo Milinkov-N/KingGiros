@@ -1,10 +1,10 @@
 import Link from 'next/link'
 import { HiOutlineX } from 'react-icons/hi'
-import Button from '../Button'
+
+import { Button } from 'src/components'
 import { AnimatePresence, motion } from 'framer-motion'
 
 import styles from 'styles/CheckoutPage.module.css'
-
 export interface ErrorProps {
   show: boolean
   onClose: () => void

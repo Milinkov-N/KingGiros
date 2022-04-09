@@ -1,5 +1,5 @@
-import { Container } from '../layout'
-import Button from '../Button'
+import { Container } from 'src/components/layout'
+import { Button } from 'src/components'
 
 import styles from './Hero.module.css'
 

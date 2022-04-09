@@ -1,6 +1,5 @@
 
-import { Img } from 'src/components'
-import Button from 'src/components/Button'
+import { Img, Button } from 'src/components'
 import useTypedSelector from 'src/hooks/useTypedSelector'
 import { currencyFormatter } from 'src/utils'
 

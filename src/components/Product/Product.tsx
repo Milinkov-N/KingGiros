@@ -1,14 +1,13 @@
 import Link from 'next/link'
 import { IShopifyProduct } from 'src/models/shopify'
 
-import Button from '../Button'
-import Img from '../Img'
+import { Button, Img } from 'src/components'
 import DefaultImg from 'public/logo_2022.png'
-
-import styles from './Product.module.css'
 import useActions from 'src/hooks/useActions'
 import { ICartItem } from 'src/models/cart'
 import { currencyFormatter, setTags } from 'src/utils'
+
+import styles from './Product.module.css'
 
 export interface ProductProps {
   product: IShopifyProduct

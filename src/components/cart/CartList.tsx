@@ -3,8 +3,7 @@ import useActions from 'src/hooks/useActions'
 import useTypedSelector from 'src/hooks/useTypedSelector'
 import { ICartItem } from 'src/models/cart'
 import { currencyFormatter } from 'src/utils'
-import Img from '../Img'
-import QuantitySelector from '../QuantitySelector'
+import { Img, QuantitySelector } from 'src/components'
 
 import styles from './Cart.module.css'
 

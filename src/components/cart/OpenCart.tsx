@@ -3,7 +3,7 @@ import { FaShoppingCart } from 'react-icons/fa'
 import useActions from 'src/hooks/useActions'
 import useTypedSelector from 'src/hooks/useTypedSelector'
 import { currencyFormatter } from 'src/utils'
-import Button, { ButtonProps } from '../Button'
+import Button, { ButtonProps } from '../Button/Button'
 
 export interface OpenCartProps extends ButtonProps {
   className?: string

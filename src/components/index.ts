@@ -1,18 +1,13 @@
-import CartModal, { OpenCart } from './cart'
-import NavModal from './NavModal'
-import Logo from './Logo'
-import Img from './Img'
-import Hero from './Hero'
-import CollectionList from './CollectionList'
-import Button from './Button'
-
-export {
-  OpenCart,
-  CartModal,
-  NavModal,
-  Logo,
-  Img,
-  Hero,
-  CollectionList,
-  Button
-}
+export { default as NavModal } from './NavModal/NavModal'
+export { default as Logo } from './Logo/Logo'
+export { default as Img } from './Img/Img'
+export { default as Hero } from './Hero/Hero'
+export { default as CollectionList } from './CollectionList/CollectionList'
+export { default as Button } from './Button/Button'
+export { default as Form } from './Form/Form'
+export { default as QuantitySelector } from './QuantitySelector/QuantitySelector'
+export { default as RelatedProducts } from './RelatedProducts/RelatedProducts'
+export { default as Product } from './Product/Product'
+export { default as Modal } from './Modal/Modal'
+export { default as Portal } from './Portal/Portal'
+export { default as Dropdown } from './Dropdown/Dropdown'

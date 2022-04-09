@@ -1,8 +1,7 @@
 import { useRef } from 'react'
 
 import { Container } from '..'
-import Button from 'src/components/Button'
-import Dropdown from 'src/components/Dropdown'
+import { Button, Dropdown } from 'src/components'
 import { OpenCart } from 'src/components/cart'
 
 import useNav from 'src/hooks/useNav'

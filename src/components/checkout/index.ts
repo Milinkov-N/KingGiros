@@ -1,9 +1,3 @@
-import ContactInfo from './ContactInfo'
-import OrderDetails from './OrderDetails'
-import Error from './Error'
-
-export {
-  ContactInfo,
-  OrderDetails,
-  Error
-}
+export { default as ContactInfo } from './ContactInfo'
+export { default as OrderDetails } from './OrderDetails'
+export { default as Error } from './Error'

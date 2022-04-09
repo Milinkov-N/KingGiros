@@ -1,6 +1,6 @@
 import { motion, AnimatePresence, MotionProps } from 'framer-motion'
 import { ReactNode, useEffect } from 'react'
-import Portal from '../Portal'
+import { Portal } from 'src/components'
 
 export interface ModalProps extends MotionProps {
   show: boolean

@@ -2,10 +2,8 @@ import { HiOutlineX } from 'react-icons/hi'
 import { COLLECTIONS, PAGES_LINKS } from 'src/consts'
 import useActions from 'src/hooks/useActions'
 import useTypedSelector from 'src/hooks/useTypedSelector'
-import Button from '../Button'
-import { OpenCart } from '../cart'
-import Logo from '../Logo'
-import Modal from '../Modal'
+import { Button, Logo, Modal } from 'src/components'
+import { OpenCart } from 'src/components/cart'
 
 import styles from './NavModal.module.css'
 

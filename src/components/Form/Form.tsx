@@ -1,4 +1,4 @@
-import { ComponentPropsWithRef, forwardRef, useEffect } from 'react'
+import { ComponentPropsWithRef, forwardRef } from 'react'
 import IMask from 'imask'
 import useClassName from 'src/hooks/useClassName'
 import styles from './Form.module.css'

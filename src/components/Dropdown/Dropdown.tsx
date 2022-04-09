@@ -2,7 +2,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { ReactNode, useRef, useState } from 'react'
 import useClassName from 'src/hooks/useClassName'
 import useOutsideClick from 'src/hooks/useOutsideClick'
-import Button from '../Button'
+import { Button } from 'src/components'
 
 import styles from './Dropdown.module.css'
 

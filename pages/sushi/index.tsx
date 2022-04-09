@@ -1,7 +1,8 @@
+import { GetStaticProps } from 'next'
+
 import Layout from 'src/components/layout'
 import { CollectionList } from 'src/components'
 import storefront from 'src/utils/shopify'
-import { GetStaticProps } from 'next'
 import { IShopifyAllProducts } from 'src/models/shopify'
 import { HomePageProps } from 'pages'
 

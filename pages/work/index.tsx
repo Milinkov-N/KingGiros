@@ -1,7 +1,6 @@
-import Layout, { Container, Stack } from 'src/components/layout'
-import { Button, Img } from 'src/components'
+import Layout, { Container } from 'src/components/layout'
+import { Button, Img, Form } from 'src/components'
 import illustration from 'public/work.svg'
-import Form from 'src/components/Form'
 
 import styles from 'styles/ContactUsPage.module.css'
 

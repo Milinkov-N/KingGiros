@@ -1,6 +1,6 @@
 import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
-import Form from 'src/components/Form'
+import { Form } from 'src/components'
 import Layout, { Container } from 'src/components/layout'
 import { ContactInfo, OrderDetails, Error } from 'src/components/checkout'
 import { useTypedSelector, useCheckout, useActions } from 'src/hooks'

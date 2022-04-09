@@ -2,16 +2,13 @@ import { GetStaticPaths, GetStaticProps } from 'next'
 import { useState } from 'react'
 
 import Layout, { Container } from 'src/components/layout'
-import { Img } from 'src/components'
-import Button from 'src/components/Button'
-import QuantitySelector from 'src/components/QuantitySelector'
+import { Img, Button, QuantitySelector, RelatedProducts } from 'src/components'
 import { IShopifyProduct } from 'src/models/shopify'
 import { currencyFormatter, setTags } from 'src/utils'
 import { getSingleProduct, recursiveCatalog } from 'src/utils/shopify'
 import defaultImg from 'public/logo_2022.png'
 import useActions from 'src/hooks/useActions'
 import { ICartItem } from 'src/models/cart'
-import RelatedProducts from 'src/components/RelatedProducts'
 
 import styles from 'styles/ProductPage.module.css'
 export interface ProductPageProps {

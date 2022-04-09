@@ -1,8 +1,7 @@
 import Layout, { Container, Stack } from 'src/components/layout'
-import { Button, Img } from 'src/components'
+import { Button, Img, Form } from 'src/components'
 import illustration from 'public/about-us.svg'
 import { FaEnvelope, FaLocationArrow, FaPhoneAlt } from 'react-icons/fa'
-import Form from 'src/components/Form'
 
 import styles from 'styles/ContactUsPage.module.css'
 

@@ -1,9 +1,8 @@
 import Link from 'next/link'
 import { FaLocationArrow, FaPhoneAlt, FaEnvelope } from 'react-icons/fa'
 
-import { Container } from '..'
-import Logo from 'src/components/Logo'
-import Stack from '../Stack'
+import { Container, Stack } from '..'
+import { Logo } from 'src/components'
 
 import styles from './Footer.module.css'
 

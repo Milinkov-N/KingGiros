@@ -1,4 +1,4 @@
-import { ComponentPropsWithoutRef, ReactNode } from 'react'
+import { ComponentPropsWithoutRef } from 'react'
 import useClassName from 'src/hooks/useClassName'
 
 export type StackDirection = 'col'

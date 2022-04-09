@@ -1,7 +1,7 @@
 import Link from 'next/link'
+import Image from 'next/image'
 
 import useClassName from 'src/hooks/useClassName'
-import Image from 'next/image'
 import logoImage from 'public/logo_2022.png'
 
 import styles from './Logo.module.css'
