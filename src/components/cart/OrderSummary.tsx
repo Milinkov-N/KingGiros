@@ -25,7 +25,7 @@ export default function OrderSummary({ handle }: OrderSummaryProps) {
               <td>{ currencyFormatter(subtotal) }</td>
             </tr>
             <tr className={ styles.tableRow }>
-              <td>Доставка</td>
+              <td>Доставка (в течение 40 минут)</td>
               <td>{ shipping === 0 ? 'бесплатно' : currencyFormatter(shipping) }</td>
             </tr>
             <tr className={ styles.tableRow }>

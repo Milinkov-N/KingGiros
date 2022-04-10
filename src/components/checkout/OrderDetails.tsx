@@ -47,7 +47,7 @@ export default function OrderDetails() {
               <td>{ currencyFormatter(subtotal) }</td>
             </tr>
             <tr className={ styles.tableRow }>
-              <td>Доставка</td>
+              <td>Доставка (в течение 40 минут)</td>
               <td>{ currencyFormatter(shipping) }</td>
             </tr>
             <tr className={ styles.tableRow }>
