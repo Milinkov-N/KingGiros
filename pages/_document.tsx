@@ -3,12 +3,7 @@ export default class MyDocument extends Document {
   render() {
     return (
       <Html>
-        <Head>
-          <link
-            rel='stylesheet'
-            href='https://pay.fondy.eu/latest/checkout-vue/checkout.css'
-          />
-        </Head>
+        <Head />
         <body>
           <Main />
           <div id='portal' />

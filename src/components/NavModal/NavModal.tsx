@@ -26,40 +26,37 @@ export default function NavModal() {
         <Logo className={ styles.logo } size={ 120 } />
         <OpenCart className={ styles.openCart }/>
         <ul className={ styles.navList }>
-          <>
-            { COLLECTIONS.map(collection => {
-              const href = collection.isPage
-              ? `/${collection.handle}`
-              : `/#${collection.handle}`
+          { COLLECTIONS.map(collection => {
+            const href = collection.isPage
+            ? `/${collection.handle}`
+            : `/#${collection.handle}`
 
-              return (
-                <li key={ collection.tag }>
-                  <Button
-                    className={ styles.link }
-                    href={ href }
-                    variant='text'
-                    size='small'
-                    label={ collection.name }
-                    onClick={ closeNav }
-                  />
-                </li>
-              )
-            })}
-          </>
-          <>
-            { PAGES_LINKS.map(link => (
-              <li key={ link.name }>
+            return (
+              <li key={ collection.tag }>
                 <Button
                   className={ styles.link }
-                  href={ link.href }
+                  href={ href }
                   variant='text'
                   size='small'
-                  label={ link.name }
+                  label={ collection.name }
                   onClick={ closeNav }
                 />
               </li>
-            ))}
-          </>
+            )
+          })}
+
+          { PAGES_LINKS.map(link => (
+            <li key={ link.name }>
+              <Button
+                className={ styles.link }
+                href={ link.href }
+                variant='text'
+                size='small'
+                label={ link.name }
+                onClick={ closeNav }
+              />
+            </li>
+          ))}
         </ul>
       </nav>
     </Modal>

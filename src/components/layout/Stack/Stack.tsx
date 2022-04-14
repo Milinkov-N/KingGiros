@@ -1,11 +1,8 @@
 import { ComponentPropsWithoutRef } from 'react'
 import useClassName from 'src/hooks/useClassName'
+import CSS from 'csstype'
 
-export type StackDirection = 'col'
-  | 'col-reverse'
-  | 'row'
-  | 'row-reverse'
-  | 'inherit'
+export type StackDirection = CSS.Property.FlexDirection | 'col'
 
 export type StackGap = '2sm'
   | 'sm'
@@ -14,22 +11,16 @@ export type StackGap = '2sm'
   | 'xl'
   | '2xl'
 
-export type StackJustify = 'center'
-  | 'space-between'
-  | 'space-around'
-  | 'space-evenly'
-  | 'stretch'
+export type StackJustify = CSS.Property.JustifyContent
 
-export type StackAlign = 'center'
-  | 'flex-end'
-  | 'flex-start'
-  | 'stretch'
+export type StackAlign = CSS.Property.AlignItems
 
 export interface StackProps extends ComponentPropsWithoutRef<'div'> {
   direction?: StackDirection
   gap?: StackGap
   justify?: StackJustify
   align?: StackAlign
+  wrap?: boolean
 }
 
 export default function Stack({
@@ -38,6 +29,7 @@ export default function Stack({
   gap,
   justify,
   align,
+  wrap,
   children,
   ...all
 }: StackProps) {
@@ -47,6 +39,7 @@ export default function Stack({
     `gap-${gap}`,
     `jc-${justify}`,
     `ai-${align}`,
+    `${ wrap && 'wrap' }`,
     className
   ])
 

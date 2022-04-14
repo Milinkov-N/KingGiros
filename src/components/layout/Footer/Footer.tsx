@@ -17,8 +17,9 @@ export default function Footer() {
           <Info />
         </Stack>
         <hr />
-        <Stack>
+        <Stack justify='space-between' gap='md' wrap>
           <span><strong>King Giros</strong> © { new Date().getFullYear() }. Все права защищены.</span>
+          <span>Разработано компанией <strong>ООО 'МИРДИН'</strong> 8 (901) 866-33-33</span>
         </Stack>
       </Container>
     </footer>
@@ -26,7 +27,7 @@ export default function Footer() {
 }
 
 const LogoImage = () => (
-  <Stack direction='col' align='center' gap='sm'>
+  <Stack direction='column' align='center' gap='sm'>
     <Logo size={ 130 } />
   </Stack>
 )
@@ -50,7 +51,7 @@ const ContactUs = () => (
       <li>
         <Stack align='center' gap='sm'>
           <FaEnvelope className={ styles.listIcon }/>
-          spik@mail.ru
+          Spik555@mail.ru
         </Stack>
       </li>
     </ul>
@@ -81,7 +82,12 @@ const Info = () => (
     <ul className='flex flex-col gap-2sm'>
       <li>
         <Link href='/contact-us'>
-          <a>Связаться с нами</a>
+          <a>Обратная связь</a>
+        </Link>
+      </li>
+      <li>
+        <Link href='/contact-us'>
+          <a>Сотрудничество</a>
         </Link>
       </li>
       <li>

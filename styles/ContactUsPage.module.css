@@ -4,6 +4,15 @@
   gap: 3rem;
 }
 
+.list {
+  margin-bottom: 1em;
+}
+
+.list li {
+  list-style: disc;
+  margin-left: 2rem;
+}
+
 .info {
   padding: 1rem 0;
 }

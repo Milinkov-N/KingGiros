@@ -13,7 +13,13 @@ export default function ContactUsPage() {
         <div className={`${ styles.content } grid-col-2 gap-xl`}>
           <div className='flex flex-col'>
             <div className={ styles.info }>
-              <p>Если вы нашли проблему на сайте, у вас возникли вопросы или хотите посотрудничать на индивидуальных условиях - заполните форму ниже и с вами свяжется наш оператор по электронной почте или телефону</p>
+              <p>Наша компания предлагает услуги в виде:</p>
+              <ul className={ styles.list }>
+                <li>Обеспечения питанием ваших сотрудников;</li>
+                <li>Обслуживание банкетов</li>
+              </ul>
+              <p>И все это по доступным ценам и с отличным сервисом. Оставьте ваши данные для связи в форме ниже и мы свяжемся с вами.</p>
+              <p>Также, если вы заметили какие-то проблемы на сайте или у Вас возникли вопросы - сообщите нам!</p>
               <ul className='flex flex-col gap-sm'>
                 <li>
                   <Stack align='center' gap='md'>
@@ -30,7 +36,7 @@ export default function ContactUsPage() {
                 <li>
                   <Stack align='center' gap='md'>
                     <FaEnvelope style={{ fontSize: '1rem' }} />
-                    spik@mail.ru
+                    Spik555@mail.ru
                   </Stack>
                 </li>
               </ul>
@@ -79,7 +85,7 @@ export default function ContactUsPage() {
               />
             </Form>
           </div>
-          <div className='flex jc-center ai-center'>
+          <div className='flex jc-center ai-start'>
               <Img
                 src={ illustration.src }
                 size={ '90%' }

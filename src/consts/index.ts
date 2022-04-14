@@ -102,12 +102,12 @@ export const PAGES_LINKS: IPageLinks[] = [
     name: 'Сотрудничество',
     href: '/contact-us'
   },
-  {
-    name: 'Работа',
-    href: '/work'
-  },
-  {
-    name: 'Обратная связь',
-    href: '/contact-us'
-  },
+  // {
+  //   name: 'Работа',
+  //   href: '/work'
+  // },
+  // {
+  //   name: 'Обратная связь',
+  //   href: '/contact-us'
+  // },
 ]

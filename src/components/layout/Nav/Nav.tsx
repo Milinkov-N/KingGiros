@@ -10,6 +10,8 @@ import { COLLECTIONS, PAGES_LINKS } from 'src/consts'
 
 import styles from './Nav.module.css'
 
+const otherBreakpoint = 10
+
 export default function Nav() {
   const navEl = useRef<HTMLElement>(null)
   const navListWidth = useRef(0)
@@ -58,7 +60,7 @@ function CollectionsLinks() {
           ? `/${collection.handle}`
           : `/#${collection.handle}`
 
-        while (index < 8) {
+        while (index < otherBreakpoint) {
           return (
             <li key={ collection.tag }>
               <Button
@@ -81,7 +83,7 @@ function DropdownLinks() {
     <li>
       <Dropdown btnClassName={ styles.dropdownBtn }>
         { COLLECTIONS.map((collection, index) => {
-          if (index >= 8) {
+          if (index >= otherBreakpoint) {
             const href = collection.isPage
               ? `/${collection.handle}`
               : `/#${collection.handle}`

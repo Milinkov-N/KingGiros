@@ -172,17 +172,25 @@ input[type=number]::-webkit-outer-spin-button {
   align-items: center;
 }
 
-.ai-flex-end {
-  align-items: center;
+.ai-end {
+  align-items: flex-end;
 }
 
-.ai-flex-start {
-  align-items: center;
+.ai-start {
+  align-items: flex-start;
 }
 
 .ai-stretch {
   align-items: stretch;
 }
+
+.wrap {
+  flex-wrap: wrap;
+}
+/* 
+.no-wrap {
+  flex-wrap: nowrap;
+} */
 
 .col-span-2 {
   grid-column: span 2;
