@@ -128,11 +128,11 @@ input[type=number]::-webkit-outer-spin-button {
   display: flex;
 }
 
-.flex-col {
+.flex-col, .flex-column {
   flex-direction: column;
 }
 
-.flex-col-reverse {
+.flex-col-reverse, .flex-column-reverse {
   flex-direction: column-reverse;
 }
 

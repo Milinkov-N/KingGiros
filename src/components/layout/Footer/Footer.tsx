@@ -19,7 +19,7 @@ export default function Footer() {
         <hr />
         <Stack justify='space-between' gap='md' wrap>
           <span><strong>King Giros</strong> © { new Date().getFullYear() }. Все права защищены.</span>
-          <span>Разработано компанией <strong>ООО 'МИРДИН'</strong> 8 (901) 866-33-33</span>
+          <span>Разработано компанией <strong>ООО &apos;МИРДИН&apos;</strong> 8 (901) 866-33-33</span>
         </Stack>
       </Container>
     </footer>
