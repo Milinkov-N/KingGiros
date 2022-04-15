@@ -12,10 +12,15 @@ export interface CollectionListProps {
 }
 
 export default function CollectionList({ products, title, sortBy, handle }: CollectionListProps) {
+  const isEmptyCategory = title === 'Пицца' || title === 'Бургеры' ||  title === 'Комбо'
   return (
     <section className={ styles.section } id={ handle }>
       <Container>
-        <h2 className={ `heading-2 ${ styles.title }` }>{ title }</h2>
+        <h2 className={ `heading-2 ${ styles.title }` }>
+          { isEmptyCategory 
+              ? `${ title } (скоро будет)`
+              : title }
+          </h2>
         <div className={ styles.grid }>{ 
           products.map(product => {
             let isSorted = false
