@@ -68,6 +68,20 @@ export function newOrderMessage({
   const dateStr = currentDate.toLocaleDateString()
   const timeStr = currentDate.toLocaleTimeString()
 
+  let payMethod = 'Не указан'
+
+  switch (paymentType) {
+    case 'on-delivery':
+      payMethod = 'Оплата при доставке'
+      break;
+    case 'pickup':
+      payMethod = 'Самовывоз'
+      break;
+    case 'online':
+      payMethod = 'Онлайн-оплата'
+      break;
+  }
+
   return `
 Новый заказ на сайте KingGiros!
 ${ dateStr } / ${ timeStr }
@@ -77,7 +91,7 @@ ${ dateStr } / ${ timeStr }
 Телефон - ${ phone }
 Email - ${ email || 'не указан' }
 Адрес доставки - ${ address } 
-Метод оплаты - ${ paymentType }
+Метод оплаты - ${ payMethod }
 
 ДЕТАЛИ ЗАКАЗА:
 ${ orderDetails }

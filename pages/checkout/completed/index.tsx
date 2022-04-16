@@ -24,6 +24,7 @@ export default function CheckoutCompletedPage() {
         { orderSubmitted && (
           <Stack direction='col' align='center' gap='lg'>
             <h2 className='heading-2'>Ваш заказ принят!</h2>
+            <p>Скоро с вами свяжется оператор для подтверждения заказа</p>
             <Img
               src={ Illustration }
               size={ '30%' }
