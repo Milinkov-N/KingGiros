@@ -1,5 +1,6 @@
 import { combineReducers, createStore } from 'redux'
 import reducers from './reducers'
+import { CartState } from './reducers/cart'
 
 // function saveToLocalStorage(state: object) {
 //   if (typeof window !== 'undefined') {
@@ -27,9 +28,30 @@ import reducers from './reducers'
 //   }
 // }
 
+function setCartCookie(cartState: CartState) {
+  console.log(cartState)
+
+  function setCookie(value: 'true' | 'false') {
+    try {
+      document.cookie = `cartIsSet=${value}; Secure; Max-Age=3600; SameSite=strict;`
+    } catch (e) {
+      console.warn(e)
+      return undefined
+    }
+  }
+
+  if (typeof document !== 'undefined') {
+    if (cartState.items.length > 0) {
+      setCookie('true')
+    } else {
+      setCookie('false')
+    }
+  }
+}
+
 const rootReducer = combineReducers(reducers)
 const appStore = createStore(rootReducer)
-// appStore.subscribe(() => saveToLocalStorage(appStore.getState()))
+appStore.subscribe(() => setCartCookie(appStore.getState().cartReducer))
 
 export default appStore
 

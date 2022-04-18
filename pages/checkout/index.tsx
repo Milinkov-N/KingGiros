@@ -10,9 +10,9 @@ import styles from 'styles/CheckoutPage.module.css'
 export default function Checkout() {
   const router = useRouter()
   const handleSubmit = useCheckout()
+  const userState = useTypedSelector(state => state.userReducer)
+  const cartState = useTypedSelector(state => state.cartReducer)
   const { orderSubmitted } = useTypedSelector(state => state.appReducer)
-  const userInfo = useTypedSelector(state => state.userReducer)
-  const { items, total } = useTypedSelector(state => state.cartReducer)
   const { resetCart, resetState, setOrderSubmitted } = useActions()
   const [showError, setShowError] = useState(false)
 
@@ -26,10 +26,10 @@ export default function Checkout() {
   const onError = () => setShowError(true)
 
   useEffect(() =>{
-    if (items.length <= 0 && !orderSubmitted) {
+    if (cartState.items.length <= 0 && !orderSubmitted) {
       router.back()
     }
-  }, [items])
+  }, [cartState.items])
 
   return (
     <Layout title='Оформление заказа'>
@@ -38,10 +38,10 @@ export default function Checkout() {
           show={ showError }
           onClose={ () => setShowError(false) }
         />
-        { items.length > 0 && (
+        { cartState.items.length > 0 && (
           <Form
             className={ styles.form }
-            onSubmit={ handleSubmit(onSuccess, onError, {items, userInfo, total}) }
+            onSubmit={ handleSubmit(onSuccess, onError, { userState, cartState }) }
           >
             <ContactInfo />
             <OrderDetails />

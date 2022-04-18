@@ -1,5 +1,6 @@
 import { FaPepperHot, FaLeaf } from 'react-icons/fa'
 import { ICartItem } from 'src/models/cart'
+import { CartState } from 'src/store/reducers/cart'
 import { UserState } from 'src/store/reducers/user'
 
 export const currencyFormatter = new Intl.NumberFormat(undefined, {
@@ -56,14 +57,28 @@ export async function sendBotMessage(chat_id: string, text: string): Promise<boo
   }
 }
 
+export interface INewOrderMessage {
+  userState: UserState
+  orderDetails: string
+  cartState: CartState
+}
+
 export function newOrderMessage({
-  firstName,
-  lastName,
-  phone,
-  address,
-  email,
-  paymentType
-}: UserState, orderDetails: string, total: number): string {
+  userState: {
+    firstName,
+    lastName,
+    email,
+    phone,
+    address,
+    paymentType
+  },
+  cartState: {
+    subtotal,
+    shipping,
+    total
+  },
+  orderDetails
+}: INewOrderMessage): string {
   const currentDate = new Date()
   const dateStr = currentDate.toLocaleDateString()
   const timeStr = currentDate.toLocaleTimeString()
@@ -95,6 +110,8 @@ Email - ${ email || 'не указан' }
 
 ДЕТАЛИ ЗАКАЗА:
 ${ orderDetails }
+ПОДЫТОГ: ${ currencyFormatter(subtotal) }
+ДОСТАВКА: ${ shipping > 0 ? currencyFormatter(shipping) : 'Бесплатная' }
 ИТОГО: ${ currencyFormatter(total) }
   `
 }
