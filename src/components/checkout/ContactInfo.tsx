@@ -93,6 +93,7 @@ export default function ContactInfo() {
           label='Телефон*'
           value={ `${ phone || '' }` }
           onChange={ (e) => setPhoneNumber(e.target.value) }
+          minLength={ 18 }
           required
         />
       </div>

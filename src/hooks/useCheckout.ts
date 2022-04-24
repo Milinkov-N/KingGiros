@@ -18,15 +18,22 @@ export default function useCheckout() {
   
       const orderDetails = getCartItemsStr(cartState.items)
       const text = newOrderMessage({ userState, cartState, orderDetails })
-      const chat_id = `${ process.env.NEXT_PUBLIC_TELEGRAM_KG_CHAT_ID }`
+      const chat_id = process.env.NODE_ENV !== 'development'
+        ? `${ process.env.NEXT_PUBLIC_TELEGRAM_KG_CHAT_ID }`
+        : `${ process.env.NEXT_PUBLIC_TELEGRAM_KG_DEV_CHAT_ID }`
   
-      async function fetchDataToTelegram() {
-        const res = await sendBotMessage(chat_id, text)
-  
-        res ? onSuccess() : onError()
+      async function fetchData() {
+        try {
+          const tgRes = await sendBotMessage(chat_id, text)
+          
+          tgRes ? onSuccess() : onError()
+        } catch (e) {
+          console.error(e)
+          onError()
+        }
       }
   
-      fetchDataToTelegram()
+      fetchData()
     }
   }
 
