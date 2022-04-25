@@ -1,6 +1,6 @@
 import { IShopifyProductEdges } from 'src/models/shopify'
 import { Container } from '../layout'
-import Product from '../Product/Product'
+import { Product } from 'src/components'
 
 import styles from './CollectionList.module.css'
 

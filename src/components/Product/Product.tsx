@@ -33,7 +33,6 @@ export default function Product({ product }: ProductProps) {
         <a className={ styles.link }>
           <Img
             className={ styles.image }
-            priority
             src={ `${ image || DefaultImg.src }` }
             alt={ product.title }
             size={ '100%' }
