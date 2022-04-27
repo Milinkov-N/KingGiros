@@ -1,4 +1,6 @@
 import { FormEvent } from 'react'
+import useTypedSelector from './useTypedSelector'
+
 import { CartState } from 'src/store/reducers/cart'
 import { UserState } from 'src/store/reducers/user'
 import { getCartItemsStr, newOrderMessage, sendBotMessage } from 'src/utils'
@@ -8,11 +10,16 @@ export interface handleSubmitOptions {
   cartState: CartState
 }
 
+export interface handleSubmitProps {
+  onSuccess: () => void,
+  onError: (errType: 'req' | 'input') => void
+}
+
 export default function useCheckout() {
-  function handleSubmit(
-    onSuccess: () => void,
-    onError: () => void,
-    { userState, cartState }: handleSubmitOptions) {
+  const userState = useTypedSelector(state => state.userReducer)
+  const cartState = useTypedSelector(state => state.cartReducer)
+  
+  function handleSubmit({ onSuccess, onError }: handleSubmitProps) {
     return (e: FormEvent<HTMLFormElement>) => {
       e.preventDefault()
   
@@ -26,14 +33,16 @@ export default function useCheckout() {
         try {
           const tgRes = await sendBotMessage(chat_id, text)
           
-          tgRes ? onSuccess() : onError()
+          tgRes ? onSuccess() : onError('req')
         } catch (e) {
           console.error(e)
-          onError()
+          onError('req')
         }
       }
-  
-      fetchData()
+
+      userState.phone.length < 18
+        ? onError('input')
+        : fetchData()
     }
   }
 

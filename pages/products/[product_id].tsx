@@ -93,6 +93,12 @@ export const getStaticPaths: GetStaticPaths = async () => {
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   const product = await getSingleProduct(String(params!.product_id))
 
+  if (!product) {
+    return {
+      notFound: true,
+    }
+  }
+
   return {
     props: {
       product

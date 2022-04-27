@@ -10,20 +10,31 @@ import styles from 'styles/CheckoutPage.module.css'
 export default function Checkout() {
   const router = useRouter()
   const handleSubmit = useCheckout()
-  const userState = useTypedSelector(state => state.userReducer)
   const cartState = useTypedSelector(state => state.cartReducer)
   const { orderSubmitted } = useTypedSelector(state => state.appReducer)
   const { resetCart, resetState, setOrderSubmitted } = useActions()
   const [showError, setShowError] = useState(false)
+  const [phoneIsIncorrect, setPhoneIsIncorrect] = useState(false)
 
-  const onSuccess = () => {
-    setOrderSubmitted(true)
-    router.push('/checkout/completed')
-    resetCart()
-    resetState()
+  const onFormSubmit = () => {
+    handleSubmit({
+      onSuccess: () => {
+        setOrderSubmitted(true)
+        router.push('/checkout/completed')
+        resetCart()
+        resetState()
+      },
+      onError: (errType) => {
+        if (errType === 'req') {
+          setShowError(true)
+        }
+        
+        if (errType === 'input') {
+          setPhoneIsIncorrect(true)
+        }
+      }
+    })
   }
-
-  const onError = () => setShowError(true)
 
   useEffect(() =>{
     if (cartState.items.length <= 0 && !orderSubmitted) {
@@ -41,9 +52,11 @@ export default function Checkout() {
         { cartState.items.length > 0 && (
           <Form
             className={ styles.form }
-            onSubmit={ handleSubmit(onSuccess, onError, { userState, cartState }) }
+            onSubmit={ onFormSubmit }
           >
-            <ContactInfo />
+            <ContactInfo
+              phoneIsCorrect={ phoneIsIncorrect }
+            />
             <OrderDetails />
           </Form>
         )}

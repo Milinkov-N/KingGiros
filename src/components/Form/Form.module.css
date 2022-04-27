@@ -16,8 +16,16 @@
   margin-top: .5rem;
 }
 
-.input:focus {
+.input:focus:not(.inputError) {
   border: 2px solid var(--clr-secondary-400);
+}
+
+.inputError {
+  border: 2px solid #ff1433;
+}
+
+.errorMessage {
+  color: #ff1433;
 }
 
 .label {

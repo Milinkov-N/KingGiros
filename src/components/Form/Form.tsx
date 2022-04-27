@@ -22,13 +22,20 @@ export default function Form({
 }
 export interface InputProps extends ComponentPropsWithRef<'input'> {
   label: string
+  error?: {
+    status: boolean
+    message: string
+  }
 }
 
 const Input = forwardRef<HTMLInputElement, InputProps>(({
   className,
   label,
+  error,
   ...rest
 }: InputProps, ref) => {
+  const inputClassNames = `${ styles.input } ${ error?.status && styles.inputError }`
+  
   return (
     <div className={ className }>
       <label className={ styles.label } htmlFor={ rest.id }>
@@ -36,9 +43,14 @@ const Input = forwardRef<HTMLInputElement, InputProps>(({
       </label>
       <input
         ref={ ref }
-        className={ styles.input }
+        className={ inputClassNames }
         { ...rest }
       />
+      { error?.status && (
+        <span className={ styles.errorMessage }>
+          { error.message }
+        </span>
+      )}
     </div>
   )
 })

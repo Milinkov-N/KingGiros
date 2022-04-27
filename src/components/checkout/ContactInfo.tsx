@@ -1,5 +1,5 @@
-import { useEffect, useRef } from 'react'
 import IMask from 'imask'
+import { ChangeEvent } from 'react'
 
 import { Form } from 'src/components'
 import useActions from 'src/hooks/useActions'
@@ -8,7 +8,11 @@ import { PaymentTypes } from 'src/store/reducers/user'
 
 import styles from 'styles/CheckoutPage.module.css'
 
-export default function ContactInfo() {
+export interface ContactInfoProps {
+  phoneIsCorrect: boolean
+}
+
+export default function ContactInfo({ phoneIsCorrect }: ContactInfoProps) {
   const {
     firstName,
     lastName,
@@ -27,21 +31,15 @@ export default function ContactInfo() {
     setPaymentType,
   } = useActions()
 
-  const PhoneNumberRef = useRef<HTMLInputElement>(null)
-
   const isSelected = (value: PaymentTypes): boolean => value === paymentType
   const handleRadioClick = (paymentType: PaymentTypes) => setPaymentType(paymentType)
-
-  useEffect(() =>  {
-    const firstNameEl = PhoneNumberRef.current!
-    const maskOptions = {
+  const handlePhoneChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const mask = IMask(e.target, {
       mask: '+{7} (000) 000-00-00'
-    }
-
-    const mask = IMask(firstNameEl, maskOptions)
+    })
 
     setPhoneNumber(mask.value)
-  }, [phone])
+  }
 
   return (
     <div>
@@ -73,6 +71,7 @@ export default function ContactInfo() {
           label='Адрес*'
           value={ address }
           onChange={ (e) => setAddress(e.target.value) }
+          minLength={ 10 }
           required
         />
         <Form.Input
@@ -85,15 +84,18 @@ export default function ContactInfo() {
           onChange={ (e) => setEmail(e.target.value) }
         />
         <Form.Input
-          ref={ PhoneNumberRef }
           className='col-span-2'
           type='tеl'
           name='phone'
           placeholder='+7 (982) 992-39-59'
           label='Телефон*'
-          value={ `${ phone || '' }` }
-          onChange={ (e) => setPhoneNumber(e.target.value) }
+          value={ `${ phone }` }
+          onChange={ handlePhoneChange }
           minLength={ 18 }
+          error={{
+            status: phoneIsCorrect,
+            message: 'Введите номер телефона полностью'
+          }}
           required
         />
       </div>
