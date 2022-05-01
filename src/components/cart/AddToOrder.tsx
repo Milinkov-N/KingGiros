@@ -5,7 +5,7 @@ import storefront from 'src/utils/shopify'
 import { Img } from 'src/components'
 
 import { Swiper, SwiperSlide } from 'swiper/react'
-import { FreeMode, } from 'swiper'
+import { FreeMode } from 'swiper'
 import 'swiper/css'
 
 import styles from './Cart.module.css'
@@ -28,62 +28,61 @@ export default function AddToOrder() {
   }, [])
 
   return (
-    <div className="add-to-order">
-      <h3
-        className='heading-4'
-        style={{ marginBottom: '.75em' }}
-      >
+    <div className='add-to-order'>
+      <h3 className='heading-4' style={{ marginBottom: '.75em' }}>
         Добавить к заказу?
       </h3>
       <Swiper
-        className={ styles.swiper }
-        slidesPerView={ 'auto' }
-        spaceBetween={ 20 }
-        freeMode={ false }
+        className={styles.swiper}
+        slidesPerView={'auto'}
+        spaceBetween={20}
+        freeMode={false}
         modules={[FreeMode]}
       >
-        {
-          products.map(product => {
-            const price = Math.floor(parseInt(product.node.priceRange.minVariantPrice.amount))
-            const image = product.node.images.edges[0].node.transformedSrc
+        {products.map(product => {
+          const price = Math.floor(
+            parseInt(product.node.priceRange.minVariantPrice.amount)
+          )
+          const image = product.node.images.edges[0].node.transformedSrc
 
-            const cartItem: ICartItem = {
-              id: product.node.id,
-              title: product.node.title,
-              handle: product.node.handle,
-              image,
-              price,
-              amount: 1
-            }
-            
-            return (
-              <SwiperSlide
-                key={ product.node.id }
-                className={ styles.swiperSlide }
-              >
-                <div className={ styles.addToOrderItem }>
-                  <Img
-                    priority
-                    className={ styles.image }
-                    src={ image || '/' }
-                    alt={ product.node.images.edges[0].node.altText }
-                    size={ 72 }
-                    onClick={ () => addToCart(cartItem) }
-                  />
-                  <div>
-                    <h4
-                      className={ styles.orderOfferItemTitle }
-                      onClick={ () => addToCart(cartItem) }
-                    >
-                      { product.node.title }
-                    </h4>
-                    <span>{ currencyFormatter(price) }</span>
-                  </div>
+          const cartItem: ICartItem = {
+            id: product.node.id,
+            title: product.node.title,
+            handle: product.node.handle,
+            image,
+            price,
+            amount: 1,
+          }
+
+          return (
+            <SwiperSlide key={product.node.id} className={styles.swiperSlide}>
+              <div className={styles.addToOrderItem}>
+                <Img
+                  priority
+                  src={image || '/'}
+                  alt={product.node.images.edges[0].node.altText}
+                  size={72}
+                  onClick={() => addToCart(cartItem)}
+                  style={{
+                    height: '75px',
+                    width: 'auto',
+                    borderRadius: '6px',
+                    overflow: 'hidden',
+                  }}
+                />
+                <div>
+                  <h4
+                    className={styles.orderOfferItemTitle}
+                    onClick={() => addToCart(cartItem)}
+                  >
+                    {product.node.title}
+                  </h4>
+                  <span>{currencyFormatter(price)}</span>
                 </div>
-              </SwiperSlide>
-            )
-          })
-        }
+              </div>
+            </SwiperSlide>
+          )
+        })}
       </Swiper>
     </div>
   )
