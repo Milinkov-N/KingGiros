@@ -10,8 +10,8 @@
   height: 100vh;
   padding: 0 11px;
   background: var(--clr-neutral-50);
-  box-shadow: 0 0 15px rgba(0 0 0 / .1);
-  transition: .4s right ease;
+  box-shadow: 0 0 15px rgba(0 0 0 / 0.1);
+  transition: 0.4s right ease;
 }
 
 .closeCartModal {
@@ -20,8 +20,8 @@
   left: -45px;
   font-size: 2rem;
   color: #fff;
-  opacity: .75;
-  transition: .1s opacity ease-in;
+  opacity: 0.75;
+  transition: 0.1s opacity ease-in;
 }
 
 .closeCartModal:hover {
@@ -45,7 +45,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: .75rem 0;
+  padding: 0.75rem 0;
 }
 
 .btn {
@@ -54,14 +54,14 @@
 }
 
 .scroll {
-  padding-top: .5rem;
-  padding-right: .5rem;
+  padding-top: 0.5rem;
+  padding-right: 0.5rem;
   overflow: scroll;
 }
 
 .scroll::-webkit-scrollbar {
   width: 4px;
-  padding: 0 .5px;
+  padding: 0 0.5px;
 }
 
 .scroll::-webkit-scrollbar-thumb {
@@ -78,11 +78,11 @@
 }
 
 .swiperSlide {
-  width: max-content;
+  width: max-content !important;
 }
 
 .addToOrderItem {
-  padding: .675rem;
+  padding: 0.675rem;
   padding-right: 1.25rem;
   background: #fff;
   border-radius: 8px;
@@ -91,7 +91,7 @@
 }
 
 .orderOfferItemTitle {
-  transition: .2s color ease;
+  transition: 0.2s color ease;
   cursor: pointer;
 }
 
@@ -149,7 +149,7 @@
   border-radius: 6px;
   padding: 11px;
   margin-top: auto;
-  margin-bottom: .75rem;
+  margin-bottom: 0.75rem;
   font-family: system-ui, 'Ubuntu', sans-serif;
 }
 
@@ -170,7 +170,7 @@
 }
 
 .tableRow td:last-child {
-  margin-top: .5em;
+  margin-top: 0.5em;
   text-align: right;
 }
 
@@ -178,8 +178,8 @@
   font-size: 1.25rem;
   font-weight: 500;
   color: #000;
-  margin-top: .5em;
-  padding-top: .75rem;
+  margin-top: 0.5em;
+  padding-top: 0.75rem;
 }
 
 .checkoutBtn {
@@ -187,11 +187,9 @@
   margin-bottom: 11px;
 }
 
-
 /**
   ------- ItemList styles ------- 
 */
-
 
 .itemsList {
   display: grid;
@@ -202,7 +200,7 @@
 
 .itemsList::-webkit-scrollbar {
   width: 4px;
-  padding: 0 .5px;
+  padding: 0 0.5px;
 }
 
 .itemsList::-webkit-scrollbar-thumb {
@@ -263,14 +261,14 @@
 
 .deleteItemBtn {
   position: absolute;
-  top: .5rem;
-  right: .5rem;
+  top: 0.5rem;
+  right: 0.5rem;
   background: none;
   border: none;
   font-size: 1rem;
   color: var(--clr-neutral-700);
   cursor: pointer;
-  transition: .2s color ease;
+  transition: 0.2s color ease;
 }
 
 .deleteItemBtn:hover {
@@ -290,7 +288,7 @@
 
   .scroll {
     padding-top: 3rem;
-  }  
+  }
 }
 
 @media (max-width: 400px) {
