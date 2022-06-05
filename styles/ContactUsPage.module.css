@@ -19,7 +19,7 @@
 
 .info p {
   line-height: 1.5;
-  margin-bottom: .75em;
+  margin-bottom: 0.75em;
 }
 
 .info ul {
@@ -33,13 +33,17 @@
   gap: 1rem;
 }
 
+.hiddenInput {
+  display: none;
+  visibility: hidden;
+}
+
 @media (max-width: 900px) {
   .content {
     grid-template-columns: 1fr;
   }
 
   .content img {
-    
     padding: 0 2rem;
   }
 }

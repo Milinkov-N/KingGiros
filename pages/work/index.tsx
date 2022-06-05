@@ -9,10 +9,12 @@ export default function WorkPage() {
     <Layout title='Связаться с нами'>
       <Container>
         <h2 className='heading-2'>Работа с нами</h2>
-        <div className={`${ styles.content } grid-col-2 gap-xl`}>
+        <div className={`${styles.content} grid-col-2 gap-xl`}>
           <div className='flex flex-col'>
-            <div className={ styles.info }>
-              <p>Приглашаем всех желающих на работу в King Giros! Мы обещаем:</p>
+            <div className={styles.info}>
+              <p>
+                Приглашаем всех желающих на работу в King Giros! Мы обещаем:
+              </p>
               <ul style={{ listStyle: 'inside', marginLeft: '1rem' }}>
                 <li>Своевременную выплату заработной платы и премий</li>
                 <li>Сменный график работы с возможностью подработок</li>
@@ -21,7 +23,25 @@ export default function WorkPage() {
                 <li>Дружный коллектив</li>
               </ul>
             </div>
-            <Form className={ `${ styles.form } grid-col-4 gap-md` }>
+            <Form
+              className={`${styles.form} grid-col-4 gap-md`}
+              action='https://formsubmit.co/spik555@mail.ru'
+              method='POST'
+            >
+              <Form.Input
+                className={styles.hiddenInput}
+                type='hidden'
+                name='_cc'
+                value='milinkov.nik@gmail.com'
+                label=''
+              />
+              <Form.Input
+                className={styles.hiddenInput}
+                type='hidden'
+                name='_subject'
+                value='Новое резюме на сайте kinggiros.ru'
+                label=''
+              />
               <Form.Input
                 className='col-span-2'
                 name='firstname'
@@ -37,14 +57,46 @@ export default function WorkPage() {
                 type='text'
                 label='Фамилия'
               />
+              <Form.Input
+                className='col-span-2'
+                name='age'
+                placeholder='18 лет'
+                type='text'
+                label='Возраст'
+              />
               <Form.MaskedTel
-                className='col-span-4'
+                className='col-span-2'
                 name='phone'
                 placeholder='8 (950) 950-50-50'
                 type='tеl'
                 label='Телефон'
                 required
               />
+              <Form.Input
+                className='col-span-2'
+                name='last_job'
+                placeholder='Продавец-кассир в "Пяторочке"'
+                type='text'
+                label='Последнее место работы'
+                required
+              />
+              <Form.Input
+                className='col-span-2'
+                name='experience'
+                placeholder='1 год'
+                type='text'
+                label='Как долго там проработали'
+                required
+              />
+              <Form.Select
+                className='col-span-4'
+                name='permanent place of work'
+                label='Ищете постоянное место работы?'
+                required
+              >
+                <option value='Да'>Да</option>
+                <option value='Нет'>Нет</option>
+              </Form.Select>
               <Form.Input
                 className='col-span-4'
                 name='email'
@@ -56,9 +108,11 @@ export default function WorkPage() {
                 className='col-span-4'
                 name='vacancy'
                 label='Должность'
+                required
               >
-                <option value="kassir">Кассир</option>
-                <option value="chief">Повар</option>
+                <option value='Кассир'>Кассир</option>
+                <option value='Помощник повара'>Помощник повара</option>
+                <option value='Повар'>Повар</option>
               </Form.Select>
               <Button
                 className='col-span-4'
@@ -68,11 +122,7 @@ export default function WorkPage() {
             </Form>
           </div>
           <div className='flex jc-center ai-center'>
-              <Img
-                src={ illustration.src }
-                size={ '80%' }
-                alt="illustration"
-              />
+            <Img src={illustration.src} size={'80%'} alt='illustration' />
           </div>
         </div>
       </Container>

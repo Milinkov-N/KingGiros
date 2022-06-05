@@ -9,17 +9,25 @@ export default function ContactUsPage() {
   return (
     <Layout title='Связаться с нами'>
       <Container>
-        <h2 className='heading-2'>По вопросам сотрудничества и обратная связь</h2>
-        <div className={`${ styles.content } grid-col-2 gap-xl`}>
+        <h2 className='heading-2'>
+          По вопросам сотрудничества и обратная связь
+        </h2>
+        <div className={`${styles.content} grid-col-2 gap-xl`}>
           <div className='flex flex-col'>
-            <div className={ styles.info }>
+            <div className={styles.info}>
               <p>Наша компания предлагает услуги в виде:</p>
-              <ul className={ styles.list }>
+              <ul className={styles.list}>
                 <li>Обеспечения питанием ваших сотрудников;</li>
                 <li>Обслуживание банкетов</li>
               </ul>
-              <p>И все это по доступным ценам и с отличным сервисом. Оставьте ваши данные для связи в форме ниже и мы свяжемся с вами.</p>
-              <p>Также, если вы заметили какие-то проблемы на сайте или у Вас возникли вопросы - сообщите нам!</p>
+              <p>
+                И все это по доступным ценам и с отличным сервисом. Оставьте
+                ваши данные для связи в форме ниже и мы свяжемся с вами.
+              </p>
+              <p>
+                Также, если вы заметили какие-то проблемы на сайте или у Вас
+                возникли вопросы - сообщите нам!
+              </p>
               <ul className='flex flex-col gap-sm'>
                 <li>
                   <Stack align='center' gap='md'>
@@ -29,9 +37,8 @@ export default function ContactUsPage() {
                 </li>
                 <li>
                   <Stack align='center' gap='md'>
-                    <FaPhoneAlt style={{ fontSize: '1rem' }} />
-                    8 (950) 838 99 99
-                  </Stack>  
+                    <FaPhoneAlt style={{ fontSize: '1rem' }} />8 (950) 838 99 99
+                  </Stack>
                 </li>
                 <li>
                   <Stack align='center' gap='md'>
@@ -41,8 +48,24 @@ export default function ContactUsPage() {
                 </li>
               </ul>
             </div>
-            
-            <Form className={ `${ styles.form } grid-col-4  gap-md` }>
+
+            <Form
+              className={`${styles.form} grid-col-4  gap-md`}
+              action='https://formsubmit.co/spik555@mail.ru'
+              method='POST'
+            >
+              <Form.Input
+                type='hidden'
+                name='_cc'
+                value='milinkov.nik@gmail.com'
+                label=''
+              />
+              <Form.Input
+                type='hidden'
+                name='_subject'
+                value='Новое резюме на сайте kinggiros.ru'
+                label=''
+              />
               <Form.Input
                 className='col-span-2'
                 name='firstname'
@@ -86,11 +109,7 @@ export default function ContactUsPage() {
             </Form>
           </div>
           <div className='flex jc-center ai-start'>
-              <Img
-                src={ illustration.src }
-                size={ '90%' }
-                alt='illustration'
-              />
+            <Img src={illustration.src} size={'90%'} alt='illustration' />
           </div>
         </div>
       </Container>
