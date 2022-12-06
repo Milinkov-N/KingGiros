@@ -36,18 +36,6 @@ export const COLLECTIONS: ICollections[] = [
     isPage: false
   },
   {
-    name: 'Супчики',
-    handle: 'soups',
-    tag: 'soup',
-    isPage: true
-  },
-  {
-    name: 'Второе',
-    handle: 'first-course',
-    tag: 'first_course',
-    isPage: true
-  },
-  {
     name: 'Пицца',
     handle: 'pizza',
     tag: 'pizza',
