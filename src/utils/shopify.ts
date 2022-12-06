@@ -44,7 +44,7 @@ async function getSingleProduct(handle: string): Promise<IShopifyProduct> {
           edges {
             node {
               altText
-              transformedSrc
+              url(transform: {scale: 1})
             }
           }
         }
