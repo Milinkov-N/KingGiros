@@ -104,7 +104,7 @@ const query = `
             images(first: 1) {
               edges {
                 node {
-                  transformedSrc
+                  url(transform: {scale: 1})
                   altText
                 }
               }
