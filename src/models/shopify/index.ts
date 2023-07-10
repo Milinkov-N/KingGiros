@@ -1,6 +1,6 @@
 export interface IShopifyImage {
   node: {
-     transformedSrc: string
+     url: string
      altText: string
   }
 }
