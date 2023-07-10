@@ -16,7 +16,7 @@ export interface ProductProps {
 export default function Product({ product }: ProductProps) {
   const { addToCart } = useActions()
   const price = Math.floor(+product.priceRange.minVariantPrice.amount)
-  const image = product?.images?.edges[0]?.node.transformedSrc
+  const image = product?.images?.edges[0]?.node.url
 
   const cartItem: ICartItem = {
     id: product.id,
