@@ -20,7 +20,7 @@ export default function ProductPage({ product }: ProductPageProps) {
   const [quantity, setQuantity] = useState(1)
 
   const price = Math.floor(+product.priceRange.minVariantPrice.amount)
-  const image = product.images.edges[0]?.node.transformedSrc || defaultImg.src
+  const image = product.images.edges[0]?.node.url || defaultImg.src
 
   const cartItem: ICartItem = {
     id: product.id,
