@@ -43,7 +43,7 @@ export default function AddToOrder() {
           const price = Math.floor(
             parseInt(product.node.priceRange.minVariantPrice.amount)
           )
-          const image = product.node.images.edges[0].node.transformedSrc
+          const image = product.node.images.edges[0].node.url
 
           const cartItem: ICartItem = {
             id: product.node.id,
