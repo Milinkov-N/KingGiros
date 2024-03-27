@@ -55,12 +55,14 @@ export default function ContactUsPage() {
               method='POST'
             >
               <Form.Input
+                className='col-span-2'
                 type='hidden'
                 name='_cc'
                 value='milinkov.nik@gmail.com'
                 label=''
               />
               <Form.Input
+                className='col-span-2'
                 type='hidden'
                 name='_subject'
                 value='Новое резюме на сайте kinggiros.ru'
