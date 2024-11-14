@@ -30,9 +30,9 @@ export const COLLECTIONS: ICollections[] = [
     isPage: false,
   },
   {
-    name: 'Пицца',
-    handle: 'pizza',
-    tag: 'pizza',
+    name: 'Бургеры',
+    handle: 'burgers',
+    tag: 'burger',
     isPage: false,
   },
   {
@@ -51,12 +51,6 @@ export const COLLECTIONS: ICollections[] = [
     name: 'Сендвичи',
     handle: 'sandwiches',
     tag: 'sandwich',
-    isPage: false,
-  },
-  {
-    name: 'Сладкое',
-    handle: 'sweets',
-    tag: 'sweet',
     isPage: false,
   },
 ]
